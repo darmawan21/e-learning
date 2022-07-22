@@ -47,4 +47,9 @@ class Guru extends Authenticatable
     {
         return $this->hasMany(KelasMapel::class);
     }
+
+    public function tugas()
+    {
+        return $this->hasMany(Tugas::class);
+    }
 }

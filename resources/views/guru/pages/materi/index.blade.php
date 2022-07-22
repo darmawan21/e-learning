@@ -38,7 +38,49 @@
                     </tr>
                     </thead>
                     <tbody>
-                
+                        @foreach ($materis as $materi)
+                            <tr>
+                                <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
+                                <td class="align-middle text-center text-sm">{{ $materi->nama_materi }}</td>
+                                <td class="align-middle text-center text-sm">
+                                    <!-- Button trigger modal -->
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i class="fas fa-file-alt"> View</i>
+                                    </a>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">{{$materi->nama_materi}} | {{ $materi->kelasMapel->MataPelajaran->nama_mapel }} | {{ $materi->kelasMapel->kelas->nama_kelas }}</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body text-start">
+                                            <p>{!! $materi->konten !!}</p>
+                                            <a href="{{ asset('storage/' . $materi->file) }}"><i class="fas fa-file-download"></i> Download Materi</a>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </td>
+                                <td class="align-middle text-center text-sm">{{ $materi->kelasMapel->MataPelajaran->nama_mapel }}</td>
+                                <td class="align-middle text-center text-sm">{{ $materi->kelasMapel->kelas->nama_kelas }}</td>
+                                <td class="align-middle text-center text-sm">
+                                    <a href="{{ route('guru.materi.edit', $materi->id) }}">
+                                        <i class="fas fa-pencil-alt p-3"></i>
+                                    </a>
+                                    <a onclick="return confirm('Apakah anda yakin hapus data ini ?')" href="{{ route('guru.materi.destroy', $materi->id) }}">
+                                        <i class="far fa-trash-alt text-danger"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
                 </div>

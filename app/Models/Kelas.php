@@ -24,4 +24,9 @@ class Kelas extends Model
     {
         return $this->hasMany(KelasMapel::class);
     }
+
+    public function kelasTugas()
+    {
+        return $this->hasMany(KelasTugas::class);
+    }
 }

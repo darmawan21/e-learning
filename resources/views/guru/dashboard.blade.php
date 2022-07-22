@@ -108,7 +108,7 @@
         <div class="card card-frame">
             <div class="card-body">
                 <h3 class="card-title mb-3">Dashboard Guru Aplikasi E-Learning</h3>
-                <p class="card-text mb-4">SMP</p>
+                <p class="card-text mb-4">SMP NEGERI 5 MASUJI MAKMUR</p>
             </div>
         </div>
     </div>

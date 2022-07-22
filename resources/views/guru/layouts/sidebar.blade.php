@@ -32,6 +32,22 @@
             <span class="nav-link-text ms-1">Materi</span>
         </a>
         </li>
+        <li class="nav-item">
+        <a class="nav-link {{ request()->is('guru/tugas*') ? 'active' : '' }}" href="{{ url('/guru/tugas') }}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Tugas</span>
+        </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link {{ request()->is('guru/tugas-siswa*') ? 'active' : '' }}" href="{{ url('/guru/tugas-siswa') }}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Data Tugas</span>
+        </a>
+        </li>
         </li>
         <li class="nav-item">
         <a class="nav-link {{ request()->is('guru/ujian*') ? 'active' : '' }}" href="{{ url('/guru/ujian') }}">
@@ -52,22 +68,7 @@
         </li>
 
         
-        <li class="nav-item">
-        <a class="nav-link " href="{{ asset('pages/virtual-reality.html')}}">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-app text-info text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Virtual Reality</span>
-        </a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link " href="{{ asset('pages/rtl.html')}}">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">RTL</span>
-        </a>
-        </li>
+
         <li class="nav-item mt-3">
         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
         </li>
@@ -79,22 +80,7 @@
             <span class="nav-link-text ms-1">Profile</span>
         </a>
         </li>
-        <li class="nav-item">
-        <a class="nav-link " href="{{ asset('pages/sign-in.html')}}">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Sign In</span>
-        </a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link " href="../pages/sign-up.html">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-collection text-info text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Sign Up</span>
-        </a>
-        </li>
+        
     </ul>
     </div>
 </aside>

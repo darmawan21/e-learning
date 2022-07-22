@@ -36,4 +36,31 @@ class KelasUjianGuruController extends Controller
 
         return redirect()->route('guru.kelas_ujian.index', $id)->with('success', 'Kelas berhasil dipilih');
     }
+
+    public function edit($ujian_id, $kelas_ujian_id)
+    {
+        $ujians = Ujian::find($ujian_id)->kelasUjian()->whereId($kelas_ujian_id)->first();
+        $kelas = Kelas::all();
+        return view('guru.pages.kelas_ujian.edit', compact('kelas', 'ujians'));
+    }
+
+    public function update(Request $request, $ujian_id, $kelas_ujian_id)
+    {
+        $rule = [
+            'kelas_id' => 'required',
+        ];
+
+        $validatedData = $request->validate($rule);
+
+        Ujian::find($ujian_id)->kelasUjian()->whereId($kelas_ujian_id)->first()->update($validatedData);
+
+        return redirect()->route('guru.kelas_ujian.index', $ujian_id)->with('success', 'Kelas berhasil diubah');
+    }
+
+    public function destroy($ujian_id, $kelas_ujian_id)
+    {
+        Ujian::find($ujian_id)->kelasUjian()->whereId($kelas_ujian_id)->delete();
+
+        return redirect()->route('guru.kelas_ujian.index', $ujian_id)->with('success', 'Kelas berhasil dihapus');
+    }
 }

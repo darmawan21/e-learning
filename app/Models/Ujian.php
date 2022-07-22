@@ -16,9 +16,9 @@ class Ujian extends Model
         return $this->belongsTo(JenisUjian::class);
     }
 
-    public function mataPelajaran()
+    public function kelasMapel()
     {
-        return $this->belongsTo(MataPelajaran::class);
+        return $this->belongsTo(KelasMapel::class);
     }
 
     public function soal()

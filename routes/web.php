@@ -13,7 +13,12 @@ use App\Http\Controllers\Guru\KelasMapelGuruController;
 use App\Http\Controllers\Guru\KelasUjianGuruController;
 use App\Http\Controllers\Admin\Auth\AdminAuthController;
 use App\Http\Controllers\Admin\DashboardAdminController;
+use App\Http\Controllers\Guru\KelasTugasGuruController;
 use App\Http\Controllers\Guru\MateriGuruController;
+use App\Http\Controllers\Guru\TugasGuruController;
+use App\Http\Controllers\Guru\TugasSiswaGuruController;
+use App\Models\Materi;
+use App\Models\Tugas;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,10 +98,37 @@ Route::namespace('Guru')->prefix('guru')->name('guru.')->group(function () {
         Route::get('materi', [MateriGuruController::class, 'index'])->name('materi.index');
         Route::get('materi/create', [MateriGuruController::class, 'create'])->name('materi.create');
         Route::post('materi', [MateriGuruController::class, 'store'])->name('materi.store');
+        Route::get('materi/{materi_id}/edit', [MateriGuruController::class, 'edit'])->name('materi.edit');
+        Route::put('materi/{materi_id}', [MateriGuruController::class, 'update'])->name('materi.update');
+        Route::get('materi/{materi_id}', [MateriGuruController::class, 'destroy'])->name('materi.destroy');
 
+        // Tugas
+        Route::get('tugas', [TugasGuruController::class, 'index'])->name('tugas.index');
+        Route::get('tugas/create', [TugasGuruController::class, 'create'])->name('tugas.create');
+        Route::post('tugas', [TugasGuruController::class, 'store'])->name('tugas.store');
+        Route::get('tugas/{tugas_id}/edit', [TugasGuruController::class, 'edit'])->name('tugas.edit');
+        Route::put('tugas/{tugas_id}', [TugasGuruController::class, 'update'])->name('tugas.update');
+        Route::get('tugas/{tugas_id}', [TugasGuruController::class, 'destroy'])->name('tugas.destroy');
+
+        // Kelas Tugas
+        Route::get('tugas/{tugas_id}/kelas-tugas', [KelasTugasGuruController::class, 'index'])->name('kelas_tugas.index');
+        Route::get('tugas/{tugas_id}/kelas-tugas/create', [KelasTugasGuruController::class, 'create'])->name('kelas_tugas.create');
+        Route::post('tugas/{tugas_id}/kelas-tugas', [KelasTugasGuruController::class, 'store'])->name('kelas_tugas.store');
+        Route::get('tugas/{tugas_id}/kelas-tugas/{kelas_tugas_id}/edit', [KelasTugasGuruController::class, 'edit'])->name('kelas_tugas.edit');
+        Route::put('tugas/{tugas_id}/kelas-tugas/{kelas_tugas_id}', [KelasTugasGuruController::class, 'update'])->name('kelas_tugas.update');
+        Route::get('tugas/{tugas_id}/kelas-tugas/{kelas_tugas_id}', [KelasTugasGuruController::class, 'destroy'])->name('kelas_tugas.destroy');
+
+        // Daftar Pengumpulan Tugas Siswa
+        Route::get('tugas-siswa', [TugasSiswaGuruController::class, 'index'])->name('tugas_siswa.index');
+        Route::get('tugas-siswa{tugas_id}/{kelas_id}', [TugasSiswaGuruController::class, 'show'])->name('tugas_siswa.show'); 
 
         // Ujian
-        Route::get('ujian', [UjianGuruController::class, 'index']);
+        Route::get('ujian', [UjianGuruController::class, 'index'])->name('ujian.index');
+        Route::get('ujian/create', [UjianGuruController::class, 'create'])->name('ujian.create');
+        Route::post('ujian', [UjianGuruController::class, 'store'])->name('ujian.store');
+        Route::get('ujian/{ujian_id}/edit', [UjianGuruController::class, 'edit'])->name('ujian.edit');
+        Route::put('ujian/{ujian_id}', [UjianGuruController::class, 'update'])->name('ujian.update');
+        Route::get('ujian/{ujian_id}', [UjianGuruController::class, 'destroy'])->name('ujian.destroy');
 
         // Soal
         Route::get('ujian/{ujian_id}/soal', [SoalGuruController::class, 'index'])->name('soal.index');
@@ -110,8 +142,11 @@ Route::namespace('Guru')->prefix('guru')->name('guru.')->group(function () {
         Route::get('ujian/{ujian_id}/kelas_ujian', [KelasUjianGuruController::class, 'index'])->name('kelas_ujian.index');
         Route::get('ujian/{ujian_id}/kelas_ujian/create', [KelasUjianGuruController::class, 'create'])->name('kelas_ujian.create');
         Route::post('ujian/{ujian_id}/kelas_ujian', [KelasUjianGuruController::class, 'store'])->name('kelas_ujian.store');
+        Route::get('ujian/{ujian_id}/kelas_ujian/{kelas_ujian_id}/edit', [KelasUjianGuruController::class, 'edit'])->name('kelas_ujian.edit');
+        Route::put('ujian/{ujian_id}/kelas_ujian/{kelas_ujian_id}', [KelasUjianGuruController::class, 'update'])->name('kelas_ujian.update');
+        Route::get('ujian/{ujian_id}/kelas_ujian/{kelas_ujian_id}', [KelasUjianGuruController::class, 'destroy'])->name('kelas_ujian.destroy');
 
-        // Nilaii
+        // Nilai
         Route::get('nilai', [NilaiGuruController::class, 'index'])->name('nilai.index');
         Route::get('nilai/{ujian_id}/{kelas_id}', [NilaiGuruController::class, 'show'])->name('nilai.show');
     });

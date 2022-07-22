@@ -12,9 +12,9 @@
                     <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
                     <div class="d-flex flex-column">
                         @foreach ($kelas as $kelasu)
-                            <h6 class="mb-3 text-sm">Mata Pelajaran <span class="text-dark font-weight-bold ms-sm-2">: {{$kelasu->ujian->kelasMapel->mataPelajaran->nama_mapel}}</span></h6>
+                            <h6 class="mb-3 text-sm">Judul Tugas <span class="text-dark font-weight-bold ms-sm-2">: {{$kelasu->tugas->judul_tugas}}</span></h6>
+                            <h6 class="mb-3 text-sm">Mata Pelajaran <span class="text-dark font-weight-bold ms-sm-2">: {{$kelasu->tugas->kelasMapel->MataPelajaran->nama_mapel}}</span></h6>
                             <h6 class="mb-3 text-sm">Kelas <span class="text-dark font-weight-bold ms-sm-2">: {{$kelasu->kelas->nama_kelas}}</span></h6>
-                            <h6 class="mb-3 text-sm">Jenis Ujian <span class="text-dark font-weight-bold ms-sm-2">: {{$kelasu->ujian->jenisUjian->jenis_ujian}}</span></h6>
                         @endforeach
                     </div>
                     </li>
@@ -25,7 +25,7 @@
         <div class="col-12">
             <div class="card mb-4" style="margin-top: 30px;">
             <div class="card-header pb-0">
-                <h6>Data Nilai Ujian</h6>
+                <h6>Data Tugas Siswa</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-0">
@@ -33,22 +33,20 @@
                     <thead>
                     <tr>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nis</th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama Siswa</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Benar</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Salah</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Kosong</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nilai</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">file</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                     </tr>
                     </thead>
                     <tbody>
                         @foreach ($items as $item)                        
                             <tr>
                                 <td class="align-middle text-center text-sm">{{$loop->iteration}}</td>
+                                <td class="align-middle text-center text-sm">{{$item->user->id}}</td>
                                 <td class="align-middle text-center text-sm">{{$item->user->name}}</td>
-                                <td class="align-middle text-center text-sm">{{$item->correct}}</td>
-                                <td class="align-middle text-center text-sm">{{$item->wrong}}</td>
-                                <td class="align-middle text-center text-sm">{{$item->empty}}</td>
-                                <td class="align-middle text-center text-sm">{{$item->point}}</td>
+                                <td class="align-middle text-center text-sm">{{$item->file}}</td>
+                                <td class="align-middle text-center text-sm">{{$item->keterangan}}</td>
                             </tr>
                         @endforeach
                     </tbody>

@@ -46,7 +46,6 @@ class ForumSiswaController extends Controller
         
         $validatedData = $request->validate([
             'forum_id' => 'required',
-            'parent' => '',
             'konten' => 'required',
         ]);
 

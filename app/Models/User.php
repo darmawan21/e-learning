@@ -61,4 +61,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Nilai::class);
     }
+
+    public function tugasSiswa()
+    {
+        return $this->hasMany(TugasSiswa::class);
+    }
 }

@@ -7,7 +7,7 @@
             <div class="card mb-4">
             
             <div class="card-header pb-0">
-                <h3 class="text-center">{{ $ujians->judul_tugas }}</h3>
+                <h3 class="text-center">{{ $tugass->judul_tugas }}</h3>
                 @if (session()->has('success'))
                     <div class="alert alert-success alert-dismissible fade show" style="color: white;" role="alert">
                         <span class="alert-icon"><i class="ni ni-like-2"></i></span>
@@ -18,7 +18,7 @@
                     </div>
                 @endif
 
-                <a href="{{ route('guru.kelas_ujian.create', $ujians->id) }}" class="btn btn-icon btn-3 btn-primary">
+                <a href="{{ route('guru.kelas_tugas.create', $tugass->id) }}" class="btn btn-icon btn-3 btn-primary">
                     <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
                     <span class="btn-inner--text">Pilih Kelas</span>
                 </a>
@@ -35,15 +35,15 @@
                     </tr>
                     </thead>
                     <tbody>
-                        @foreach ($ujians->kelasUjian as $kelas)
+                        @foreach ($tugass->kelasTugas as $tugas)
                             <tr>
                                 <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
-                                <td class="align-middle text-center text-sm">{{ $kelas->kelas->nama_kelas }}</td>
+                                <td class="align-middle text-center text-sm">{{ $tugas->kelas->nama_kelas }}</td>
                                 <td class="align-middle text-center text-sm">
-                                    <a href="{{ route('guru.kelas_ujian.edit', [$ujians->id, $kelas->id]) }}">
+                                    <a href="{{ route('guru.kelas_tugas.edit', [$tugass->id, $tugas->id]) }}">
                                         <i class="fas fa-pencil-alt p-3"></i>
                                     </a>
-                                    <a onclick="return confirm('Apakah anda yakin hapus data ini ?')" href="{{ route('guru.kelas_ujian.destroy', [$ujians->id, $kelas->id]) }}">
+                                    <a onclick="return confirm('Apakah anda yakin hapus data ini ?')" href="{{ route('guru.kelas_tugas.destroy', [$tugass->id, $tugas->id]) }}">
                                         <i class="far fa-trash-alt text-danger"></i>
                                     </a>
                                 </td>

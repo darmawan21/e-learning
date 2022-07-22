@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKomentarsTable extends Migration
+class CreateKelasTugasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateKomentarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('komentars', function (Blueprint $table) {
+        Schema::create('kelas_tugas', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
-            $table->string('forum_id');
-            $table->text('konten');
-            $table->integer('parent')->default(0);
+            $table->string('tugas_id');
+            $table->string('kelas_id');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateKomentarsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('komentars');
+        Schema::dropIfExists('kelas_tugas');
     }
 }

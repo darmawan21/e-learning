@@ -14,6 +14,10 @@
             <li class="breadcrumb-item text-sm text-white active" aria-current="page">Materi</li>
         @elseif (request()->is('guru/mata-pelajaran*'))
             <li class="breadcrumb-item text-sm text-white active" aria-current="page">Mata Pelajaran</li>
+        @elseif (request()->is('guru/tugas*'))
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Tugas</li>
+        @elseif (request()->is('guru/tugas-siswa*'))
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Tugas Siswa</li>
         @endif
         </ol>
         @if (request()->is('guru/dashboard*'))
@@ -28,6 +32,10 @@
             <h6 class="font-weight-bolder text-white mb-0">Materi</h6>
         @elseif (request()->is('guru/mata-pelajaran*'))
             <h6 class="font-weight-bolder text-white mb-0">Mata Pelajaran</h6>
+        @elseif (request()->is('guru/tugas*'))
+            <h6 class="font-weight-bolder text-white mb-0">Tugas</h6>
+        @elseif (request()->is('guru/tugas-siswa*'))
+            <h6 class="font-weight-bolder text-white mb-0">Tugas Siswa</h6>
         @endif
     </nav>
     <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">

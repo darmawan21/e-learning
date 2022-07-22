@@ -17,10 +17,9 @@ class UjianSeeder extends Seeder
         Ujian::create([
             'judul' => 'Aljabar',
             'tanggal' => date('Y-m-d'),
-            'acak' => 'acak',
             'status' => 'draft',
             'guru_id' => '1',
-            'mata_pelajaran_id' => '1',
+            'kelas_mapel_id' => '1',
             'jenis_ujian_id' => '2',
         ]);
     }

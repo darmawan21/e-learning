@@ -21,7 +21,8 @@
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Judul Ujian</th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tanggal Ujian</th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Soal</th>
-                        <th class="text-secondary opacity-7"></th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Daftar Kelas</th>
+                        
                     </tr>
                     </thead>
                     <tbody>
@@ -29,7 +30,7 @@
                         <tr>
                             <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
                             <td class="align-middle text-center text-sm">{{ $ujian->jenisUjian->jenis_ujian }}</td>
-                            <td class="align-middle text-center text-sm">{{ $ujian->mataPelajaran->nama_mapel }}</td>
+                            <td class="align-middle text-center text-sm">{{ $ujian->kelasMapel->mataPelajaran->nama_mapel }}</td>
                             <td class="align-middle text-center text-sm">{{ $ujian->judul }}</td>
                             <td class="align-middle text-center">
                                 <span class="text-secondary text-xs font-weight-bold">{{ $ujian->tanggal }}</span>

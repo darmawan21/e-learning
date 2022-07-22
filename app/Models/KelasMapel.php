@@ -30,4 +30,14 @@ class KelasMapel extends Model
     {
         return $this->hasMany(Materi::class);
     }
+
+    public function tugas()
+    {
+        return $this->hasMany(Tugas::class);
+    }
+
+    public function ujian()
+    {
+        return $this->hasMany(Ujian::class);
+    }
 }

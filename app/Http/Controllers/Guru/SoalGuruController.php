@@ -113,7 +113,7 @@ class SoalGuruController extends Controller
 
         Ujian::find($ujian_id)->soal()->whereId($soal_id)->first()->update($validatedData);
 
-        return redirect()->route('guru.soal.index', $ujian_id)->with('success', 'Soal berhasil diedit');
+        return redirect()->route('guru.soal.index', $ujian_id)->with('success', 'Soal berhasil diubah');
     }
 
     /**

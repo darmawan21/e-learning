@@ -7,31 +7,18 @@
         <div class="col-md-8">
             <div class="card">
 
-                <form method="POST" action="{{ route('guru.ujian.update', $ujians->id) }}" enctype="multipart/form-data">
-                    @method('put')
+                <form method="POST" action="{{ route('guru.tugas.store') }}" enctype="multipart/form-data">
                     @csrf   
                     <div class="card-body">
-                        <h6 class="text-uppercase text-sm">Form Pengaturan Ujian</h6>
+                        <h6 class="text-uppercase text-sm">Form Tugas</h6>
                         <hr class="horizontal dark">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="jenis_ujian">Jenis Ujian</label>
-                                    <select class="form-control" id="jenis_ujian" name="jenis_ujian_id">
-                                    @foreach ($jenisujians as $jenisujian)
-                                        @if (old('jenis_ujian_id', $ujians->jenis_ujian_id) == $jenisujian->id)
-                                            <option value="{{ $jenisujian->id }}" selected>{{ $jenisujian->jenis_ujian }}</option>
-                                        @else
-                                            <option value="{{ $jenisujian->id }}" >{{ $jenisujian->jenis_ujian }}</option>
-                                        @endif
-                                    @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group">
                                     <label for="mapel">Daftar Mata Pembelajaran</label>
                                     <select class="form-control" id="mapel" name="kelas_mapel_id">
                                     @foreach ($kelasmapels as $mapel)
-                                        @if (old('kelas_mapel_id', $ujians->kelas_mapel_id) == $mapel->id)
+                                        @if (old('kelas_mapel_id') == $mapel->id)
                                             <option value="{{ $mapel->id }}" selected>{{ $mapel->mataPelajaran->nama_mapel }} - {{ $mapel->kelas->nama_kelas }}</option>
                                         @else
                                             <option value="{{ $mapel->id }}" >{{ $mapel->mataPelajaran->nama_mapel }} - {{ $mapel->kelas->nama_kelas }}</option>
@@ -40,11 +27,11 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="judul">Nama Ujian</label>
-                                    <input class="form-control @error('judul')
+                                    <label for="judul_tugas">Title Tugas</label>
+                                    <input class="form-control @error('judul_tugas')
                                         is-invalid
-                                    @enderror" id="judul" type="text" name="judul" required value="{{ old('judul', $ujians->judul) }}">
-                                    @error('judul')
+                                    @enderror" id="judul_tugas" type="text" name="judul_tugas" required value="{{ old('judul_tugas') }}">
+                                    @error('judul_tugas')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
@@ -54,7 +41,7 @@
                                     <label for="tanggal" class="form-control-label">Tanggal Mulai</label>
                                     <input class="form-control @error('tanggal')
                                         is-invalid
-                                    @enderror" id="tanggal" type="datetime-local" name="tanggal" required value="{{ old('tanggal', $ujians->tanggal ) }}">
+                                    @enderror" id="tanggal" type="date" name="tanggal" required value="{{ old('tanggal') }}">
                                     @error('tanggal')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -65,14 +52,14 @@
                                     
                                     <label for="waktu" class="form-control-label">Waktu</label>
                                     <div class="alert alert-info alert-dismissible fade show" style="color: white;" role="alert">
-                                        <span class="alert-text"><strong>Info!</strong> Batas tanggal dan waktu untuk berakhir ujian</span>
+                                        <span class="alert-text"><strong>Info!</strong> Batas tanggal dan waktu untuk pengumpulan tugas</span>
                                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <input class="form-control @error('waktu')
                                         is-invalid
-                                    @enderror" id="waktu" type="datetime-local" name="waktu" required value="{{ old('waktu', $ujians->waktu) }}">
+                                    @enderror" id="waktu" type="datetime-local" name="waktu" required value="{{ old('waktu') }}">
                                     @error('waktu')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -80,20 +67,9 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="status">status</label>
-                                    <select class="form-control" id="status" name="status">
-                                        <option @if ($ujians->soal_count < 4)
-                                            disabled
-                                        @endif @if ($ujians->status === 'publish')
-                                            selected
-                                        @endif value="publish">publish</option>
-                                        <option @if ($ujians->status === 'passive')
-                                            selected
-                                        @endif value="passive">passive</option>
-                                        <option @if ($ujians->status === '')
-                                            selected
-                                        @endif value="draft">draft</option>
-                                    </select>
+                                    <label for="isi_tugas">Perintah Tugas</label>
+                                    <input class="form-control" id="isi_tugas" type="hidden" name="isi_tugas" required value="{{ old('isi_tugas') }}">
+                                    <trix-editor input="isi_tugas"></trix-editor>
                                 </div>
                             </div>
                         </div>
@@ -105,5 +81,11 @@
         </div>
     </div>
 </div>
+
+<script>
+        document.addEventListener('trix-file-accept', function(e) {
+            e.preventDefault();
+        });
+    </script>
 
 @endsection
