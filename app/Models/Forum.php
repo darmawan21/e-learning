@@ -25,9 +25,9 @@ class Forum extends Model
         return $this->hasMany(Komentar::class);
     }
 
-    public function child()
+    public function guru()
     {
-        return $this->hasMany(Komentar::class);
+        return $this->belongsTo(Guru::class);
     }
 
 }

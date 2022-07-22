@@ -19,8 +19,8 @@ class CreateTugasTable extends Migration
             $table->string('guru_id');
             $table->string('judul_tugas');
             $table->string('isi_tugas');
-            $table->date('tanggal');
-            $table->timestamp('waktu');
+            $table->dateTime('tanggal');
+            $table->dateTime('waktu');
             $table->timestamps();
         });
     }

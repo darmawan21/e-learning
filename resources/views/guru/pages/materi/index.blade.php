@@ -60,7 +60,9 @@
                                         </div>
                                         <div class="modal-body text-start">
                                             <p>{!! $materi->konten !!}</p>
-                                            <a href="{{ asset('storage/' . $materi->file) }}"><i class="fas fa-file-download"></i> Download Materi</a>
+                                            @if ($materi->file != null)
+                                                <a href="{{ asset('storage/' . $materi->file) }}"><i class="fas fa-file-download"></i> Download Materi</a>
+                                            @endif
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>

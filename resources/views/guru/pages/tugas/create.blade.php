@@ -41,7 +41,7 @@
                                     <label for="tanggal" class="form-control-label">Tanggal Mulai</label>
                                     <input class="form-control @error('tanggal')
                                         is-invalid
-                                    @enderror" id="tanggal" type="date" name="tanggal" required value="{{ old('tanggal') }}">
+                                    @enderror" id="tanggal" type="datetime-local" name="tanggal" required value="{{ old('tanggal') }}">
                                     @error('tanggal')
                                         <div class="invalid-feedback">
                                             {{ $message }}

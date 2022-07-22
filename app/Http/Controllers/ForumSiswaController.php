@@ -42,11 +42,11 @@ class ForumSiswaController extends Controller
     }
 
     public function post(Request $request, $id)
-    {
-        
+    {   
         $validatedData = $request->validate([
             'forum_id' => 'required',
             'konten' => 'required',
+            'parent' => 'required',
         ]);
 
         $validatedData['user_id'] = auth()->user()->id;

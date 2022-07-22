@@ -16,6 +16,11 @@ class Komentar extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function guru()
+    {
+        return $this->belongsTo(Guru::class);
+    }
+
     public function forum()
     {
         return $this->belongsTo(Forum::class);

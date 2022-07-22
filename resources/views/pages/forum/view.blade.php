@@ -1,4 +1,4 @@
-@extends('pages.home')
+@extends('layouts.main')
 
 @section('container')
 <div class="container-fluid py-4">
@@ -27,7 +27,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <input type="hidden" name="forum_id" value="{{$forums->id}}">
-                                    <input type="hidden" name="parent" id="0">
+                                    <input type="hidden" name="parent" value="0">
                                     <textarea name="konten" class="form-control" rows="4" id="komentar-utama"></textarea>
                                     <input type="submit" class="form-control btn btn-outline-primary w-20" value="Kirim">
                                 </div>
@@ -39,21 +39,28 @@
                     
                     <li class="list-group-item border-0 p-4 mb-2 bg-gray-100 border-radius-lg">
                         <div class="d-flex align-items-center">
-                            <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up"></i></button>
+                            <div>
+                                @if ($komentar->user != null && $komentar->user->image)
+                                    <img src="{{ asset('storage/' . $komentar->user->image) }}" class="avatar avatar-sm me-3"> 
+                                @elseif ($komentar->guru != null && $komentar->guru->image)
+                                    <img src="{{ asset('storage/' . $komentar->guru->image) }}" class="avatar avatar-sm me-3"> 
+                                @else
+                                    <img src="{{ asset('img/profil-picture.png') }}" class="avatar avatar-sm me-3">
+                                @endif
+                            </div>
                             <div class="d-flex flex-column">
                                 <h6 class="mb-1 text-dark text-sm">
-                                    {{ $komentar->user->name }}
+                                    {{ $komentar->user->name }} . <span class="text-xs">{{$komentar->created_at->diffForHumans() }}</span>
                                 </h6>
                                 <p>
                                     {{$komentar->konten}}
                                 </p>
-                                <span class="text-xs">{{$komentar->created_at->diffForHumans() }}</span>
-                                <p class="text-sm pt-2" style="color: green;" id="btn-komentar-parent">Reply</p>
+                                
+                                <p class="text-sm" style="color: green;" id="btn-komentar-parent">Reply</p>
                             </div>
-                            
                         </div><br>
                         <form action="{{ route('forum.view', $forums->id)}}" style="display: none; margin-left: 50px;" id="komentar-parent" method="POST">
-                                @csrf
+                            @csrf
                             <div class="form-group">
                                 <input type="hidden" name="forum_id" value="{{$forums->id}}">
                                 <input type="hidden" name="parent" value="{{ $komentar->id }}">
@@ -66,15 +73,23 @@
                             
                         
                         <div class="d-flex align-items-center" style="margin-left: 70px;">
-                            <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i class="fas fa-arrow-up"></i></button>
+                            <div>
+                                @if ($komentar->user != null && $komentar->user->image)
+                                    <img src="{{ asset('storage/' . $komentar->user->image) }}" class="avatar avatar-sm me-3"> 
+                                @elseif ($komentar->guru != null && $komentar->guru->image)
+                                    <img src="{{ asset('storage/' . $komentar->guru->image) }}" class="avatar avatar-sm me-3"> 
+                                @else
+                                    <img src="{{ asset('img/profil-picture.png') }}" class="avatar avatar-sm me-3">
+                                @endif
+                            </div>
                             <div class="d-flex flex-column">
                                 <h6 class="mb-1 text-dark text-sm">
-                                    {{ $komentar->user->name }}
+                                    {{ $komentar->user->name }} . <span class="text-xs">{{$komentar->created_at->diffForHumans() }}</span>
                                 </h6>
                                 <p>
                                     {{$child->konten}}
                                 </p>
-                                <span class="text-xs">{{$komentar->created_at->diffForHumans() }}</span>
+                                
                             </div>
                             
                         </div><br>

@@ -4,20 +4,32 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Pages</a></li>
-        @if (request()->is('dashboard'))
+        @if (request()->is('dashboard*'))
             <li class="breadcrumb-item text-sm text-white active" aria-current="page">Dashboard</li>
-        @elseif (request()->is('ujian'))
+        @elseif (request()->is('ujian*'))
             <li class="breadcrumb-item text-sm text-white active" aria-current="page">Ujian</li>
-        @elseif (request()->is('forum'))
+        @elseif (request()->is('forum*'))
             <li class="breadcrumb-item text-sm text-white active" aria-current="page">Forum</li>
+        @elseif (request()->is('mata-pelajaran*'))
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Mapel</li>
+        @elseif (request()->is('tugas*'))
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Tugas</li>
+        @elseif (request()->is('profil-siswa*'))
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Profil Siswa</li>
         @endif
         </ol>
-        @if (request()->is('dashboard'))
+        @if (request()->is('dashboard*'))
             <h6 class="font-weight-bolder text-white mb-0">Dashboard</h6>
-        @elseif (request()->is('ujian'))
+        @elseif (request()->is('ujian*'))
             <h6 class="font-weight-bolder text-white mb-0">Ujian</h6>
-        @elseif (request()->is('forum'))
+        @elseif (request()->is('forum*'))
             <h6 class="font-weight-bolder text-white mb-0">Forum</h6>
+        @elseif (request()->is('mata-pelajaran*'))
+            <h6 class="font-weight-bolder text-white mb-0">Mapel</h6>
+        @elseif (request()->is('tugas*'))
+            <h6 class="font-weight-bolder text-white mb-0">Tugas</h6>
+        @elseif (request()->is('profil-siswa*'))
+            <h6 class="font-weight-bolder text-white mb-0">Profil Siswa</h6>
         @endif
     </nav>
     <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
@@ -36,7 +48,7 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
                 <li>
-                    <form action="{{ route('guru.logout') }}" id="logout-form" method="POST">
+                    <form action="{{ route('logout') }}" id="logout-form" method="POST">
                         @csrf
                         <a class="dropdown-item" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                     </form>

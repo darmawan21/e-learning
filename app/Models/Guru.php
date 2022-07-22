@@ -52,4 +52,14 @@ class Guru extends Authenticatable
     {
         return $this->hasMany(Tugas::class);
     }
+
+    public function forum()
+    {
+        return $this->hasMany(Forum::class);
+    }
+
+    public function komentar()
+    {
+        return $this->hasMany(Komentar::class);
+    }
 }

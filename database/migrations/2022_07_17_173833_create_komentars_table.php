@@ -15,10 +15,11 @@ class CreateKomentarsTable extends Migration
     {
         Schema::create('komentars', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->string('user_id')->nullable();
+            $table->string('guru_id')->nullable();
             $table->string('forum_id');
             $table->text('konten');
-            $table->integer('parent')->default(0);
+            $table->string('parent');
             $table->timestamps();
         });
     }

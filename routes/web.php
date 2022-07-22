@@ -5,7 +5,6 @@ use App\Http\Controllers\NilaiGuruController;
 use App\Http\Controllers\ForumSiswaController;
 use App\Http\Controllers\UjianSiswaController;
 use App\Http\Controllers\Guru\SoalGuruController;
-use App\Http\Controllers\Guru\KelasGuruController;
 use App\Http\Controllers\Guru\UjianGuruController;
 use App\Http\Controllers\Guru\Auth\GuruAuthController;
 use App\Http\Controllers\Guru\DashboardGuruController;
@@ -17,8 +16,11 @@ use App\Http\Controllers\Guru\KelasTugasGuruController;
 use App\Http\Controllers\Guru\MateriGuruController;
 use App\Http\Controllers\Guru\TugasGuruController;
 use App\Http\Controllers\Guru\TugasSiswaGuruController;
-use App\Models\Materi;
-use App\Models\Tugas;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MataPelajaranSiswaController;
+use App\Http\Controllers\ProfilSiswaController;
+use App\Http\Controllers\TugasSiswaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,14 +37,33 @@ use App\Models\Tugas;
 //     return view('welcome');
 // });
 
-Route::get('/dashboard', function () {
-    return view('pages.home');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('pages.home');
+// })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
 // User Routes
 Route::middleware(['auth'])->group(function () {
+
+    // Dashboard
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+
+    // Profil Siswa
+    Route::get('profil-siswa', [ProfilSiswaController::class, 'index'])->name('profil_siswa.index');
+    Route::get('profil-siswa/{user_id}/edit', [ProfilSiswaController::class, 'edit'])->name('profil_siswa.edit');
+    Route::put('profil-siswa/{user_id}', [ProfilSiswaController::class, 'update'])->name('profil_siswa.update');
+
+    // Kelas Matapelajaran
+    Route::get('mata-pelajaran', [MataPelajaranSiswaController::class, 'index'])->name('mata_pelajaran.index');
+    Route::get('mata-pelajaran/{kelas_mapel_id}/show', [MataPelajaranSiswaController::class, 'show'])->name('mata_pelajaran.show');
+    Route::get('mata-pelajaran/{kelas_mapel_id}/show/{materi_id}/detail', [MataPelajaranSiswaController::class, 'detail'])->name('mata_pelajaran.detail');
+    
+    // Tugas Siswa
+    Route::get('tugas', [TugasSiswaController::class, 'index'])->name('tugas.index');
+    Route::get('tugas/{tugas_id}/create', [TugasSiswaController::class, 'create'])->name('tugas.create');
+    Route::post('tugas/{tugas_id}', [TugasSiswaController::class, 'store'])->name('tugas.store');
+
     // Ujian 
     Route::get('ujian', [UjianSiswaController::class, 'index'])->name('ujian.index');
     Route::get('ujian/{id}/show', [UjianSiswaController::class, 'show'])->name('ujian.show');
