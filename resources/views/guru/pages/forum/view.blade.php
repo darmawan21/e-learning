@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('guru.layouts.main')
 
 @section('container')
 <div class="container-fluid py-4">
@@ -23,7 +23,7 @@
                                 <span class="btn-inner--text">Komentar</span>
                             </p>
                         </div>
-                            <form action="{{ route('forum.view', $forums->id)}}" style="display: none;" id="komentar-utama" method="POST">
+                            <form action="{{ route('guru.forum.view', $forums->id)}}" style="display: none;" id="komentar-utama" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <input type="hidden" name="forum_id" value="{{$forums->id}}">
@@ -64,7 +64,7 @@
                                 <p class="text-sm" style="color: green;" id="btn-komentar-parent">Reply</p>
                             </div>
                         </div><br>
-                        <form action="{{ route('forum.view', $forums->id)}}" style="display: none; margin-left: 50px;" id="komentar-parent" method="POST">
+                        <form action="{{ route('guru.forum.view', $forums->id)}}" style="display: none; margin-left: 50px;" id="komentar-parent" method="POST">
                             @csrf
                             <div class="form-group">
                                 <input type="hidden" name="forum_id" value="{{$forums->id}}">

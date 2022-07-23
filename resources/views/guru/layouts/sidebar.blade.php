@@ -16,10 +16,21 @@
             </div>
             <span class="nav-link-text ms-1">Dashboard</span>
         </a>
+        </li>
+
+        <li class="nav-item">
+        <a class="nav-link {{ request()->is('guru/pengumuman*') ? 'active' : '' }}" href="{{ url('/guru/pengumuman') }}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-bell-55 text-info text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Pengumuman</span>
+        </a>
+        </li>
+
         <li class="nav-item">
         <a class="nav-link {{ request()->is('guru/mata-pelajaran*') ? 'active' : '' }}" href="{{ url('/guru/mata-pelajaran') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+            <i class="ni ni-books text-success text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Mata Pelajaran</span>
         </a>
@@ -27,7 +38,7 @@
         <li class="nav-item">
         <a class="nav-link {{ request()->is('guru/materi*') ? 'active' : '' }}" href="{{ url('/guru/materi') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+            <i class="ni ni-single-copy-04 text-primary text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Materi</span>
         </a>
@@ -35,15 +46,15 @@
         <li class="nav-item">
         <a class="nav-link {{ request()->is('guru/tugas*') ? 'active' : '' }}" href="{{ url('/guru/tugas') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+            <i class="ni ni-ruler-pencil text-warning text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Tugas</span>
         </a>
         </li>
         <li class="nav-item">
-        <a class="nav-link {{ request()->is('guru/tugas-siswa*') ? 'active' : '' }}" href="{{ url('/guru/tugas-siswa') }}">
+        <a class="nav-link {{ request()->is('guru/data-tugas*') ? 'active' : '' }}" href="{{ url('/guru/data-tugas') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+            <i class="ni ni-archive-2 text-success text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Data Tugas</span>
         </a>
@@ -52,7 +63,7 @@
         <li class="nav-item">
         <a class="nav-link {{ request()->is('guru/ujian*') ? 'active' : '' }}" href="{{ url('/guru/ujian') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+            <i class="ni ni-paper-diploma text-danger text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Ujian</span>
         </a>
@@ -61,18 +72,27 @@
         <li class="nav-item">
         <a class="nav-link {{ request()->is('guru/nilai*') ? 'active' : '' }}" href="{{ url('/guru/nilai') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+            <i class="ni ni-trophy text-dark text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Nilai</span>
         </a>
         </li>
         
+        <li class="nav-item">
+        <a class="nav-link {{ request()->is('guru/forum*') ? 'active' : '' }}" href="{{ url('/guru/forum') }}">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="ni ni-chat-round text-info text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Forum</span>
+        </a>
+        </li>
+
 
         <li class="nav-item mt-3">
         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
         </li>
         <li class="nav-item">
-        <a class="nav-link " href="{{ asset('pages/profile.html')}}">
+        <a class="nav-link {{ request()->is('guru/profil-guru*') ? 'active' : '' }}" href="{{ url('/guru/profil-guru') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
             </div>

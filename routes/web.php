@@ -1,26 +1,28 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NilaiGuruController;
 use App\Http\Controllers\ForumSiswaController;
+use App\Http\Controllers\TugasSiswaController;
 use App\Http\Controllers\UjianSiswaController;
+use App\Http\Controllers\ProfilSiswaController;
 use App\Http\Controllers\Guru\SoalGuruController;
+use App\Http\Controllers\Guru\ForumGuruController;
+use App\Http\Controllers\Guru\TugasGuruController;
 use App\Http\Controllers\Guru\UjianGuruController;
+use App\Http\Controllers\Guru\MateriGuruController;
+use App\Http\Controllers\Guru\ProfilGuruController;
 use App\Http\Controllers\Guru\Auth\GuruAuthController;
 use App\Http\Controllers\Guru\DashboardGuruController;
+use App\Http\Controllers\MataPelajaranSiswaController;
 use App\Http\Controllers\Guru\KelasMapelGuruController;
+use App\Http\Controllers\Guru\KelasTugasGuruController;
 use App\Http\Controllers\Guru\KelasUjianGuruController;
+use App\Http\Controllers\Guru\PengumumanGuruController;
+use App\Http\Controllers\Guru\TugasSiswaGuruController;
 use App\Http\Controllers\Admin\Auth\AdminAuthController;
 use App\Http\Controllers\Admin\DashboardAdminController;
-use App\Http\Controllers\Guru\KelasTugasGuruController;
-use App\Http\Controllers\Guru\MateriGuruController;
-use App\Http\Controllers\Guru\TugasGuruController;
-use App\Http\Controllers\Guru\TugasSiswaGuruController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\MataPelajaranSiswaController;
-use App\Http\Controllers\ProfilSiswaController;
-use App\Http\Controllers\TugasSiswaController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -107,6 +109,20 @@ Route::namespace('Guru')->prefix('guru')->name('guru.')->group(function () {
         // Dashboard
         Route::get('dashboard', [DashboardGuruController::class, 'index'])->name('dashboard');
 
+        // Pengumuman
+        Route::get('pengumuman', [PengumumanGuruController::class, 'index'])->name('pengumuman.index');
+        Route::get('pengumuman/create', [PengumumanGuruController::class, 'create'])->name('pengumuman.create');
+        Route::post('pengumuman', [PengumumanGuruController::class, 'store'])->name('pengumuman.store');
+        Route::get('pengumuman/{pengumuman_guru_id}/edit', [PengumumanGuruController::class, 'edit'])->name('pengumuman.edit');
+        Route::put('pengumuman/{pengumuman_guru_id}', [PengumumanGuruController::class, 'update'])->name('pengumuman.update');
+        Route::get('pengumuman/{pengumuman_guru_id}', [PengumumanGuruController::class, 'destroy'])->name('pengumuman.destroy');
+
+        
+        // Profil Guru
+        Route::get('profil-guru', [ProfilGuruController::class, 'index'])->name('profil_guru.index');
+        Route::get('profil-guru/{guru_id}/edit', [ProfilGuruController::class, 'edit'])->name('profil_guru.edit');
+        Route::put('profil-guru/{guru_id}', [ProfilGuruController::class, 'update'])->name('profil_guru.update');
+
         // Mata pelajaran
         Route::get('mata-pelajaran', [KelasMapelGuruController::class, 'index'])->name('mata-pelajaran');
         Route::get('mata-pelajaran/create', [KelasMapelGuruController::class, 'create'])->name('mata-pelajaran.create');
@@ -140,8 +156,8 @@ Route::namespace('Guru')->prefix('guru')->name('guru.')->group(function () {
         Route::get('tugas/{tugas_id}/kelas-tugas/{kelas_tugas_id}', [KelasTugasGuruController::class, 'destroy'])->name('kelas_tugas.destroy');
 
         // Daftar Pengumpulan Tugas Siswa
-        Route::get('tugas-siswa', [TugasSiswaGuruController::class, 'index'])->name('tugas_siswa.index');
-        Route::get('tugas-siswa{tugas_id}/{kelas_id}', [TugasSiswaGuruController::class, 'show'])->name('tugas_siswa.show'); 
+        Route::get('data-tugas', [TugasSiswaGuruController::class, 'index'])->name('tugas_siswa.index');
+        Route::get('data-tugas/{tugas_id}/{kelas_id}', [TugasSiswaGuruController::class, 'show'])->name('tugas_siswa.show'); 
 
         // Ujian
         Route::get('ujian', [UjianGuruController::class, 'index'])->name('ujian.index');
@@ -170,6 +186,13 @@ Route::namespace('Guru')->prefix('guru')->name('guru.')->group(function () {
         // Nilai
         Route::get('nilai', [NilaiGuruController::class, 'index'])->name('nilai.index');
         Route::get('nilai/{ujian_id}/{kelas_id}', [NilaiGuruController::class, 'show'])->name('nilai.show');
+
+        // Forum
+        Route::get('forum', [ForumGuruController::class, 'index'])->name('forum.index');
+        Route::get('forum/create', [ForumGuruController::class, 'create'])->name('forum.create');
+        Route::post('forum', [ForumGuruController::class, 'store'])->name('forum.store');
+        Route::get('forum/{id}/view', [ForumGuruController::class, 'view'])->name('forum.view');
+        Route::post('forum/{id}/view', [ForumGuruController::class, 'post'])->name('forum.post');
     });
 
     Route::post('logout', [GuruAuthController::class, 'destroy'])->name('logout');

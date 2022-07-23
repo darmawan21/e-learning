@@ -57,8 +57,7 @@
                         {{count($ujian === 'publish')}}
                     @else
                         0
-                    @endif    
-                
+                    @endif
                 </h5>
                 </div>
             </div>
@@ -72,12 +71,25 @@
         </div>
     </div>
     </div>
-    <div class="row mt-4 text-center">
+    <div class="row mt-4">
     <div class="col-lg-12 mb-lg-0 mb-4">
         <div class="card card-frame">
             <div class="card-body">
-                <h3 class="card-title mb-3">Dashboard Siswa Aplikasi E-Learning</h3>
-                <p class="card-text mb-4">SMP NEGERI 5 MESUJI MAKMUR</p>
+                
+                <h3 class="card-title mb-3 text-center">Dashboard Siswa Aplikasi E-Learning</h3>
+                <p class="card-text mb-4 text-center">SMP NEGERI 5 MESUJI MAKMUR</p>
+
+                @foreach ($pengumumans as $pengumuman)
+                <div class="col-12">
+                <div class="alert alert-info alert-dismissible fade show" style="color: white;" role="alert">
+                    <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+                    <span class="alert-text"><strong>Info!</strong> {{ $pengumuman->pengumuman }}</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                </div>
+                @endforeach
             </div>
         </div>
     </div>

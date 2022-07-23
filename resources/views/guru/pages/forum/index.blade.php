@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('guru.layouts.main')
 
 @section('container')
 <div class="container-fluid py-4">
@@ -11,7 +11,7 @@
                   <h6 class="mb-0">Forum Diskusi</h6>
                 </div>
                 <div class="col-6 text-end">
-                    <a href="{{ route('forum.create') }}" class="btn btn-outline-primary btn-sm mb-0">
+                    <a href="{{ route('guru.forum.create') }}" class="btn btn-outline-primary btn-sm mb-0">
                         <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
                         <span class="btn-inner--text">Tambah Forum</span>
                     </a>
@@ -34,13 +34,14 @@
                                 @endif
                             </div>
                             <div class="d-flex flex-column">
-                                <h6 class="mb-1 text-dark text-sm"><a href="{{ route('forum.view', $forum->id) }}">
+                                <h6 class="mb-1 text-dark text-sm"><a href="{{ route('guru.forum.view', $forum->id) }}">
                                     @if ($forum->user !=null)
                                         Siswa: {{ $forum->user->name }} : {{ $forum->title }}
                                     @endif
                                     @if ($forum->guru !=null)
                                         Guru: {{ $forum->guru->name }} : {{ $forum->title }}
                                     @endif
+                                    
                                 </a></h6>
                                 <span class="text-xs">{{$forum->created_at->diffForHumans() }}</span>
                             </div>

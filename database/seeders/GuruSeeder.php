@@ -15,7 +15,15 @@ class GuruSeeder extends Seeder
     public function run()
     {
         Guru::create([
-            'name' => 'guru',
+            'name' => 'Sumanto',
+            'nip' => '180101553',
+            'kelamin' => 'Laki-laki',
+            'alamat' => 'Palembang',
+            'agama' => 'islam',
+            'telp' => '082134600995',
+            'tempat_lahir' => 'Bekasi',
+            'tanggal_lahir' => '1991-05-02',
+            'pangkat' => 'Guru',
             'email' => 'guru@gmail.com',
             'password' => bcrypt('password')
         ]);
