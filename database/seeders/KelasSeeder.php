@@ -16,17 +16,14 @@ class KelasSeeder extends Seeder
     {
         Kelas::create([
             'nama_kelas' => 'Kelas I A',
-            'tahun_ajaran' => '2018/2019'
         ]);
 
         Kelas::create([
             'nama_kelas' => 'Kelas II A',
-            'tahun_ajaran' => '2018/2019'
         ]);
         
         Kelas::create([
             'nama_kelas' => 'Kelas III A',
-            'tahun_ajaran' => '2018/2019'
         ]);
     }
 }

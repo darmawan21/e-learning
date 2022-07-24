@@ -32,7 +32,7 @@
                 <div class="numbers">
                 <p class="text-sm mb-0 text-uppercase font-weight-bold">Tugas</p>
                 <h5 class="font-weight-bolder">
-                    {{count($mapel[0]->tugas)}}
+                    {{count($tugas)}}
                 </h5>
                 </div>
             </div>
@@ -53,11 +53,7 @@
                 <div class="numbers">
                 <p class="text-sm mb-0 text-uppercase font-weight-bold">Ujian</p>
                 <h5 class="font-weight-bolder">
-                    @if ($ujian[0]->ujian->status === 'publish')
-                        {{count($ujian === 'publish')}}
-                    @else
-                        0
-                    @endif
+                    {{count($kelasUjian)}}
                 </h5>
                 </div>
             </div>

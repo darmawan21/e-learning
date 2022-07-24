@@ -49,13 +49,6 @@
             <span class="nav-link-text ms-1">Forum</span>
         </a>
         </li>
-
-        <li class="nav-item">
-            <form action="{{ route('logout') }}" id="logout-form" method="POST">
-                @csrf
-                <a class="dropdown-item" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
-            </form>
-        </li>
         
         <li class="nav-item mt-3">
         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>

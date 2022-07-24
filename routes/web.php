@@ -11,8 +11,11 @@ use App\Http\Controllers\Guru\SoalGuruController;
 use App\Http\Controllers\Guru\ForumGuruController;
 use App\Http\Controllers\Guru\TugasGuruController;
 use App\Http\Controllers\Guru\UjianGuruController;
+use App\Http\Controllers\Admin\GuruAdminController;
 use App\Http\Controllers\Guru\MateriGuruController;
 use App\Http\Controllers\Guru\ProfilGuruController;
+use App\Http\Controllers\Admin\KelasAdminController;
+use App\Http\Controllers\Admin\SiswaAdminController;
 use App\Http\Controllers\Guru\Auth\GuruAuthController;
 use App\Http\Controllers\Guru\DashboardGuruController;
 use App\Http\Controllers\MataPelajaranSiswaController;
@@ -23,6 +26,10 @@ use App\Http\Controllers\Guru\PengumumanGuruController;
 use App\Http\Controllers\Guru\TugasSiswaGuruController;
 use App\Http\Controllers\Admin\Auth\AdminAuthController;
 use App\Http\Controllers\Admin\DashboardAdminController;
+use App\Http\Controllers\Admin\JenisUjianAdminController;
+use App\Http\Controllers\Admin\MataPelajaranAdminController;
+use App\Http\Controllers\Admin\PengumumanAdminController;
+use App\Http\Controllers\Admin\ProfilAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +57,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Dashboard
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+    Route::get('/notify', [HomeController::class, 'notify'])->name('notify');
 
     // Profil Siswa
     Route::get('profil-siswa', [ProfilSiswaController::class, 'index'])->name('profil_siswa.index');
@@ -91,7 +99,61 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     });
     
     Route::middleware('admin')->group(function () {
+        // Dashboard
         Route::get('dashboard', [DashboardAdminController::class, 'index'])->name('dashboard');
+
+        // Pengumuman
+        Route::get('pengumuman', [PengumumanAdminController::class, 'index'])->name('pengumuman.index');
+        Route::get('pengumuman/create', [PengumumanAdminController::class, 'create'])->name('pengumuman.create');
+        Route::post('pengumuman', [PengumumanAdminController::class, 'store'])->name('pengumuman.store');
+        Route::get('pengumuman/{pengumuman_admin_id}/edit', [PengumumanAdminController::class, 'edit'])->name('pengumuman.edit');
+        Route::put('pengumuman/{pengumuman_admin_id}', [PengumumanAdminController::class, 'update'])->name('pengumuman.update');
+        Route::get('pengumuman/{pengumuman_admin_id}', [PengumumanAdminController::class, 'destroy'])->name('pengumuman.destroy');
+
+        // Kelas 
+        Route::get('kelas', [KelasAdminController::class, 'index'])->name('kelas.index');
+        Route::get('kelas/create', [KelasAdminController::class, 'create'])->name('kelas.create');
+        Route::post('kelas', [KelasAdminController::class, 'store'])->name('kelas.store');
+        Route::get('kelas/{kelas_id}/edit', [KelasAdminController::class, 'edit'])->name('kelas.edit');
+        Route::put('kelas/{kelas_id}', [KelasAdminController::class, 'update'])->name('kelas.update');
+        Route::get('kelas/{kelas_id}', [KelasAdminController::class, 'destroy'])->name('kelas.destroy');
+
+        // Mata Pelajaran
+        Route::get('mata-pelajaran', [MataPelajaranAdminController::class, 'index'])->name('mata_pelajaran.index');
+        Route::get('mata-pelajaran/create', [MataPelajaranAdminController::class, 'create'])->name('mata_pelajaran.create');
+        Route::post('mata-pelajaran', [MataPelajaranAdminController::class, 'store'])->name('mata_pelajaran.store');
+        Route::get('mata-pelajaran/{mata_pelajaran_id}/edit', [MataPelajaranAdminController::class, 'edit'])->name('mata_pelajaran.edit');
+        Route::put('mata-pelajaran/{mata_pelajaran_id}', [MataPelajaranAdminController::class, 'update'])->name('mata_pelajaran.update');
+        Route::get('mata-pelajaran/{mata_pelajaran_id}', [MataPelajaranAdminController::class, 'destroy'])->name('mata_pelajaran.destroy');
+
+        // Jenis Ujian
+        Route::get('jenis-ujian', [JenisUjianAdminController::class, 'index'])->name('jenis_ujian.index');
+        Route::get('jenis-ujian/create', [JenisUjianAdminController::class, 'create'])->name('jenis_ujian.create');
+        Route::post('jenis-ujian', [JenisUjianAdminController::class, 'store'])->name('jenis_ujian.store');
+        Route::get('jenis-ujian/{jenis_ujian_id}/edit', [JenisUjianAdminController::class, 'edit'])->name('jenis_ujian.edit');
+        Route::put('jenis-ujian/{jenis_ujian_id}', [JenisUjianAdminController::class, 'update'])->name('jenis_ujian.update');
+        Route::get('jenis-ujian/{jenis_ujian_id}', [JenisUjianAdminController::class, 'destroy'])->name('jenis_ujian.destroy');
+
+        // Guru
+        Route::get('guru', [GuruAdminController::class, 'index'])->name('guru.index');
+        Route::get('guru/create', [GuruAdminController::class, 'create'])->name('guru.create');
+        Route::post('guru', [GuruAdminController::class, 'store'])->name('guru.store');
+        Route::get('guru/{guru_id}/edit', [GuruAdminController::class, 'edit'])->name('guru.edit');
+        Route::put('guru/{guru_id}', [GuruAdminController::class, 'update'])->name('guru.update');
+        Route::get('guru/{guru_id}', [GuruAdminController::class, 'destroy'])->name('guru.destroy');
+
+        // Siswa
+        Route::get('siswa', [SiswaAdminController::class, 'index'])->name('siswa.index');
+        Route::get('siswa/create', [SiswaAdminController::class, 'create'])->name('siswa.create');
+        Route::post('siswa', [SiswaAdminController::class, 'store'])->name('siswa.store');
+        Route::get('siswa/{user_id}/edit', [SiswaAdminController::class, 'edit'])->name('siswa.edit');
+        Route::put('siswa/{user_id}', [SiswaAdminController::class, 'update'])->name('siswa.update');
+        Route::get('siswa/{user_id}', [SiswaAdminController::class, 'destroy'])->name('siswa.destroy');
+
+        // Profil Admin
+        Route::get('profil-admin', [ProfilAdminController::class, 'index'])->name('profil_admin.index');
+        Route::get('profil-admin/{admin_id}/edit', [ProfilAdminController::class, 'edit'])->name('profil_admin.edit');
+        Route::put('profil-admin/{admin_id}', [ProfilAdminController::class, 'update'])->name('profil_admin.update');
     });
     
     Route::post('logout', [AdminAuthController::class, 'destroy'])->name('logout');

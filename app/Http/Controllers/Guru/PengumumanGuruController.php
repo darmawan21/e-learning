@@ -55,12 +55,12 @@ class PengumumanGuruController extends Controller
 
         PengumumanGuru::where('id', $pengumuman_guru_id)->update($validatedData);
 
-        return redirect()->route('guru.pengumuman.index')->with('success', 'Berhasil mengubah mata pelajaran');
+        return redirect()->route('guru.pengumuman.index')->with('success', 'Berhasil mengubah pengumuman');
     }
 
     public function destroy($pengumuman_guru_id)
     {
         PengumumanGuru::where('id', $pengumuman_guru_id)->delete();
-        return redirect()->route('guru.pengumuman.index')->with('success', 'Berhasil menghapus mata pelajaran');
+        return redirect()->route('guru.pengumuman.index')->with('success', 'Berhasil menghapus pengumuman');
     }
 }

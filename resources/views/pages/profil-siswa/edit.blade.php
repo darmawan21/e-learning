@@ -88,7 +88,7 @@
                                     <label for="tanggal_lahir" class="form-control-label">Tanggal Lahir</label>
                                     <input class="form-control @error('tanggal_lahir')
                                         is-invalid
-                                    @enderror" id="tanggal_lahir" type="date" name="tanggal_lahir" required value="{{ old('tanggal_lahir') }}">
+                                    @enderror" id="tanggal_lahir" type="date" name="tanggal_lahir" required value="{{ old('tanggal_lahir', $profil->tanggal_lahir) }}">
                                     @error('tanggal_lahir')
                                         <div class="invalid-feedback">
                                             {{ $message }}

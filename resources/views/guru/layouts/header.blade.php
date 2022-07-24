@@ -20,6 +20,8 @@
             <li class="breadcrumb-item text-sm text-white active" aria-current="page">Tugas Siswa</li>
         @elseif (request()->is('guru/profil-guru*'))
             <li class="breadcrumb-item text-sm text-white active" aria-current="page">Profil Guru</li>
+        @elseif (request()->is('guru/pengumuman*'))
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Pengumuman</li>
         @endif
         </ol>
         @if (request()->is('guru/dashboard*'))
@@ -40,6 +42,8 @@
             <h6 class="font-weight-bolder text-white mb-0">Tugas Siswa</h6>
         @elseif (request()->is('guru/profil-guru*'))
             <h6 class="font-weight-bolder text-white mb-0">Profil Guru</h6>
+        @elseif (request()->is('guru/pengumuman*'))
+            <h6 class="font-weight-bolder text-white mb-0">Pengumuman</h6>
         @endif
     </nav>
     <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">

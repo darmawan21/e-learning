@@ -34,4 +34,9 @@ class Kelas extends Model
     {
         return $this->hasMany(PengumumanGuruan::class);
     }
+
+    public function pengumumanAdmin()
+    {
+        return $this->hasMany(PengumumanAdmin::class);
+    }
 }
