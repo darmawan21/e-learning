@@ -38,7 +38,7 @@
                         @foreach ($ujians as $ujian)
                         <tr>
                             <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
-                            <td class="align-middle text-center text-sm">{{ $ujian->mataPelajaran->nama_mapel }}</td>
+                            <td class="align-middle text-center text-sm">{{ $ujian->kelasMapel->MataPelajaran->nama_mapel }}</td>
                             <td class="align-middle text-center text-sm">{{ $ujian->judul }}</td>
                             <td class="align-middle text-center text-sm">{{ $ujian->jenisUjian->jenis_ujian }}</td>
                             @if ( count($ujian->nilai) > 0)

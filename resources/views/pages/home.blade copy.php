@@ -11,7 +11,7 @@
                 <div class="numbers">
                 <p class="text-sm mb-0 text-uppercase font-weight-bold">Mata Pelajaran</p>
                 <h5 class="font-weight-bolder">
-                    {{count($mapel)}}
+                    0
                 </h5>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                 <div class="numbers">
                 <p class="text-sm mb-0 text-uppercase font-weight-bold">Tugas</p>
                 <h5 class="font-weight-bolder">
-                    {{count($tugas)}}
+                    0
                 </h5>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                 <div class="numbers">
                 <p class="text-sm mb-0 text-uppercase font-weight-bold">Ujian</p>
                 <h5 class="font-weight-bolder">
-                    {{count($ujian)}}
+                    0
                 </h5>
                 </div>
             </div>

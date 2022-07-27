@@ -1,6 +1,6 @@
 
 
-@extends('pages.home')
+@extends('layouts.main')
 
 @section('container')
 <div class="container-fluid py-4">
@@ -27,7 +27,7 @@
                             <div class="p-4">
                                 <p>: {{ Auth::user()->id }}</p>
                                 <p>: {{ Auth::user()->name }}</p>
-                                <p>: {{ $ujian->mataPelajaran->nama_mapel }}</p>
+                                <p>: {{ $ujian->kelasMapel->mataPelajaran->nama_mapel }}</p>
                                 <p>: {{ $ujian->judul }}</p>
                                 <p>: {{ count($ujian->soal) }}</p>
                                 <p>: {{ $ujian->myNilai->correct }}</p>

@@ -1,4 +1,4 @@
-@extends('guru.layouts.main')
+@extends('layouts.main')
 
 @section('container')
 

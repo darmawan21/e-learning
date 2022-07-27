@@ -28,7 +28,8 @@
                                 <span class="mb-2 text-xs">Tanggal & Waktu <span class="text-dark ms-sm-2 font-weight-bold" id="waktu">: {{$tugas->tugas->waktu}}</span></span>
                                 <span class="text-xs">Perintah Tugas: <br><span class="text-dark ms-sm-2 font-weight-bold">{!! $tugas->tugas->isi_tugas !!}</span></span>
                             </div>
-                            @if ($tugas->tugas->waktu <= now('Asia/Jakarta')->toDateTimeString())
+                            
+                            @if ($tugas->tugas->waktu < now('Asia/Jakarta')->toDateTimeString())
                                 <div class="ms-auto text-end" id="demo" style="display: none;">
                                     <a href="{{ route('tugas.create', $tugas->tugas_id) }}">
                                         <i class="ni ni-single-copy-04"></i> Kumpulkan Tugas

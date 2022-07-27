@@ -1,4 +1,4 @@
-@extends('pages.home')
+@extends('layouts.main')
 
 @section('container')
 <div class="container-fluid py-4">
@@ -19,7 +19,7 @@
                                 <h6 class="mb-3">Waktu </h6>
                             </div>
                             <div class="p-4">
-                                <p>: {{ $ujian->mataPelajaran->nama_mapel }}</p>
+                                <p>: {{ $ujian->kelasMapel->mataPelajaran->nama_mapel }}</p>
                                 <p>: {{ $ujian->judul }}</p>
                                 <p>: {{ count($ujian->soal) }}</p>
                                 <p>: {{ date('H:i', strtotime($ujian->waktu ))}}</p>
