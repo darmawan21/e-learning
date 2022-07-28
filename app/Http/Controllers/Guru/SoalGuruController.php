@@ -46,7 +46,6 @@ class SoalGuruController extends Controller
             'pilihan2' => 'required|max:255',
             'pilihan3' => 'required|max:255',
             'pilihan4' => 'required|max:255',
-            'pilihan5' => 'required|max:255',
             'kunci' => 'required',
         ]);
 
@@ -98,7 +97,6 @@ class SoalGuruController extends Controller
             'pilihan2' => 'required|max:255',
             'pilihan3' => 'required|max:255',
             'pilihan4' => 'required|max:255',
-            'pilihan5' => 'required|max:255',
             'kunci' => 'required',
         ];
 

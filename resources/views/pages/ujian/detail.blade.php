@@ -80,21 +80,6 @@
                                         </label>
                                     @endif
                                 </div>
-                                <div class="form-check mb-3 mt-3">
-                                    @if ('pilihan5' == $soals->kunci)
-                                        <label class="form-check-label text-bold" style="color: green;" for="ujian{{$ujian->id}}5">
-                                            E. {{$soals->pilihan5}}
-                                        </label>
-                                    @elseif ('pilihan5' == $soals->myJawab->jawaban)
-                                        <label class="form-check-label text-bold"  for="ujian{{$ujian->id}}5">
-                                            E. {{$soals->pilihan5}}
-                                        </label>
-                                    @else
-                                        <label class="form-check-label" for="ujian{{$ujian->id}}5">
-                                            E. {{$soals->pilihan5}}
-                                        </label>
-                                    @endif
-                                </div> 
                             </li>
                             <hr class="horizontal dark">
                             

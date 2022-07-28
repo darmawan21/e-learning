@@ -99,19 +99,6 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="pilihan5">Pilihan E</label>
-                                <textarea class="form-control @error('pilihan5')
-                                    is-invalid
-                                @enderror" id="pilihan5" rows="3" name="pilihan5">{{ old('pilihan5') }}</textarea>
-                                @error('pilihan5')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                        </div>
                     </div>
 
                     <hr class="horizontal dark">
@@ -133,9 +120,7 @@
                                 <option @if (old('kunci') === 'pilihan4')
                                     selected
                                 @endif value="pilihan4">D</option>
-                                <option @if (old('kunci') === 'pilihan5')
-                                    selected
-                                @endif value="pilihan5">E</option>
+                                
                                 </select>
                             </div>
                         </div>

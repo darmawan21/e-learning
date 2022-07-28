@@ -42,12 +42,6 @@
                                         {{$soals->pilihan4}}
                                     </label>
                                 </div>
-                                <div class="form-check mb-3 mt-3">
-                                    <input class="form-check-input" type="radio" name="{{ $soals->id }}" id="ujian{{ $soals->id }}5" value="pilihan5">
-                                    <label class="form-check-label" for="ujian{{$ujian->id}}5">
-                                        {{$soals->pilihan5}}
-                                    </label>
-                                </div> 
                             </li>
                             <hr class="horizontal dark">
                             

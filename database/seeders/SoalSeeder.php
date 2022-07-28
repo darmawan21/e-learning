@@ -20,7 +20,6 @@ class SoalSeeder extends Seeder
             'pilihan2' => '20',
             'pilihan3' => '11',
             'pilihan4' => '2',
-            'pilihan5' => '1',
             'kunci' => '4',
             'ujian_id' => '1',
         ]);
@@ -31,8 +30,7 @@ class SoalSeeder extends Seeder
             'pilihan2' => '20',
             'pilihan3' => '11',
             'pilihan4' => '8',
-            'pilihan5' => '16',
-            'kunci' => '5',
+            'kunci' => '2',
             'ujian_id' => '1',
         ]);
 
@@ -42,7 +40,6 @@ class SoalSeeder extends Seeder
             'pilihan2' => '20',
             'pilihan3' => '25',
             'pilihan4' => '3',
-            'pilihan5' => '87',
             'kunci' => '3',
             'ujian_id' => '2',
         ]);

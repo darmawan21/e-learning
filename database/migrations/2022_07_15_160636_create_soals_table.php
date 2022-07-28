@@ -22,8 +22,7 @@ class CreateSoalsTable extends Migration
             $table->longText('pilihan2');
             $table->longText('pilihan3');
             $table->longText('pilihan4');
-            $table->longText('pilihan5');
-            $table->enum('kunci', ['pilihan1', 'pilihan2', 'pilihan3', 'pilihan4', 'pilihan5']);
+            $table->enum('kunci', ['pilihan1', 'pilihan2', 'pilihan3', 'pilihan4']);
             $table->timestamps();
         });
     }

@@ -38,7 +38,6 @@
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Pilihan B</th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Pilihan C</th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Pilihan D</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Pilihan E</th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Kunci</th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Aksi</th>
                         <th class="text-secondary opacity-7"></th>
@@ -54,7 +53,6 @@
                             <td class="align-middle text-center text-sm">{{ $soals->pilihan2 }}</td>
                             <td class="align-middle text-center text-sm">{{ $soals->pilihan3 }}</td>
                             <td class="align-middle text-center text-sm">{{ $soals->pilihan4 }}</td>
-                            <td class="align-middle text-center text-sm">{{ $soals->pilihan5 }}</td>
                             <td class="align-middle text-center text-sm">{{ substr($soals->kunci, -1) }}</td>
                             <td class="align-middle text-center text-sm">
                                 <a href="{{ route('guru.soal.edit', [$ujians->id, $soals->id]) }}" class="btn btn-outline-primary">
