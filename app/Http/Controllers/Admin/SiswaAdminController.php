@@ -12,7 +12,7 @@ class SiswaAdminController extends Controller
 {
     public function index()
     {
-        $siswas = User::all();
+        $siswas = User::get();
         return view('admin.pages.siswa.index', compact('siswas'));
     }
 

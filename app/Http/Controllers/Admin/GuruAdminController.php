@@ -22,7 +22,6 @@ class GuruAdminController extends Controller
 
     public function store(Request $request)
     {
-        
         $validatedData = $request->validate([
             'nip' => 'required',
             'name' => 'required',

@@ -10,7 +10,7 @@ class MataPelajaranSiswaController extends Controller
 {
     public function index()
     {
-        $mapels = KelasMapel::where('kelas_id', auth()->user()->kelas_id)->get();
+        $mapels = KelasMapel::where('kelas_id', auth()->user()->kelas_id)->with('guru')->get();
         return view('pages.mata-pelajaran.index', compact('mapels'));
     }
 

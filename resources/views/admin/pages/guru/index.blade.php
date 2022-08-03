@@ -33,6 +33,7 @@
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-3">Alamat</th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Kelamin</th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tanggal Lahir</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Kelas</th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Aksi</th>
                         
                     </tr>
@@ -68,6 +69,11 @@
                             </td>
                             <td class="align-middle text-center">
                                 <span class="text-secondary text-xs font-weight-bold">{{$guru->tanggal_lahir}}</span>
+                            </td>
+                            <td class="align-middle text-center text-sm">
+                                <a href="{{ route('admin.kelas-mapel.index', $guru->id) }}" class="text-secondary font-weight-bold text-sm">
+                                    <span class="badge badge-sm bg-gradient-primary">Kelas</span>
+                                </a>
                             </td>
                             <td class="align-middle text-center text-sm">
                                 <a href="{{ route('admin.guru.edit', $guru->id) }}">

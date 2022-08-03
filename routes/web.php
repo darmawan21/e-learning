@@ -16,9 +16,11 @@ use App\Http\Controllers\Guru\MateriGuruController;
 use App\Http\Controllers\Guru\ProfilGuruController;
 use App\Http\Controllers\Admin\KelasAdminController;
 use App\Http\Controllers\Admin\SiswaAdminController;
+use App\Http\Controllers\Admin\ProfilAdminController;
 use App\Http\Controllers\Guru\Auth\GuruAuthController;
 use App\Http\Controllers\Guru\DashboardGuruController;
 use App\Http\Controllers\MataPelajaranSiswaController;
+use App\Http\Controllers\Admin\SemesterAdminController;
 use App\Http\Controllers\Guru\KelasMapelGuruController;
 use App\Http\Controllers\Guru\KelasTugasGuruController;
 use App\Http\Controllers\Guru\KelasUjianGuruController;
@@ -27,9 +29,10 @@ use App\Http\Controllers\Guru\TugasSiswaGuruController;
 use App\Http\Controllers\Admin\Auth\AdminAuthController;
 use App\Http\Controllers\Admin\DashboardAdminController;
 use App\Http\Controllers\Admin\JenisUjianAdminController;
-use App\Http\Controllers\Admin\MataPelajaranAdminController;
+use App\Http\Controllers\Admin\KelasMapelAdminController;
 use App\Http\Controllers\Admin\PengumumanAdminController;
-use App\Http\Controllers\Admin\ProfilAdminController;
+use App\Http\Controllers\Admin\MataPelajaranAdminController;
+use App\Http\Controllers\Admin\TahunAjaranAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -110,6 +113,22 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::put('pengumuman/{pengumuman_admin_id}', [PengumumanAdminController::class, 'update'])->name('pengumuman.update');
         Route::get('pengumuman/{pengumuman_admin_id}', [PengumumanAdminController::class, 'destroy'])->name('pengumuman.destroy');
 
+        // Tahun Ajaran
+        Route::get('tahun-ajaran', [TahunAjaranAdminController::class, 'index'])->name('tahun_ajaran.index');
+        Route::get('tahun-ajaran/create', [TahunAjaranAdminController::class, 'create'])->name('tahun_ajaran.create');
+        Route::post('tahun-ajaran', [TahunAjaranAdminController::class, 'store'])->name('tahun_ajaran.store');
+        Route::get('tahun-ajaran{tahun_ajaran_id}/edit', [TahunAjaranAdminController::class, 'edit'])->name('tahun_ajaran.edit');
+        Route::put('tahun-ajaran{tahun_ajaran_id}', [TahunAjaranAdminController::class, 'update'])->name('tahun_ajaran.update');
+        Route::get('tahun-ajaran{tahun_ajaran_id}', [TahunAjaranAdminController::class, 'destroy'])->name('tahun_ajaran.destroy');
+
+        // Semester
+        Route::get('semester', [SemesterAdminController::class, 'index'])->name('semester.index');
+        Route::get('semester/create', [SemesterAdminController::class, 'create'])->name('semester.create');
+        Route::post('semester', [SemesterAdminController::class, 'store'])->name('semester.store');
+        Route::get('semester/{semester_id}/edit', [SemesterAdminController::class, 'edit'])->name('semester.edit');
+        Route::put('semester/{semester_id}', [SemesterAdminController::class, 'update'])->name('semester.update');
+        Route::get('semester/{semester_id}', [SemesterAdminController::class, 'destroy'])->name('semester.destroy');
+
         // Kelas 
         Route::get('kelas', [KelasAdminController::class, 'index'])->name('kelas.index');
         Route::get('kelas/create', [KelasAdminController::class, 'create'])->name('kelas.create');
@@ -141,6 +160,14 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('guru/{guru_id}/edit', [GuruAdminController::class, 'edit'])->name('guru.edit');
         Route::put('guru/{guru_id}', [GuruAdminController::class, 'update'])->name('guru.update');
         Route::get('guru/{guru_id}', [GuruAdminController::class, 'destroy'])->name('guru.destroy');
+
+        // Kelas Mapel
+        Route::get('guru/{guru_id}/kelas-mapel', [KelasMapelAdminController::class, 'index'])->name('kelas-mapel.index');
+        Route::get('guru/{guru_id}/kelas-mapel/create', [KelasMapelAdminController::class, 'create'])->name('kelas-mapel.create');
+        Route::post('guru/{guru_id}/kelas-mapel', [KelasMapelAdminController::class, 'store'])->name('kelas-mapel.store');
+        Route::get('guru/{guru_id}/kelas-mapel/{kelas_mapel_id}/edit', [KelasMapelAdminController::class, 'edit'])->name('kelas-mapel.edit');
+        Route::put('guru/{guru_id}/kelas-mapel/{kelas_mapel_id}', [KelasMapelAdminController::class, 'update'])->name('kelas-mapel.update');
+        Route::get('guru/{guru_id}/kelas-mapel/{kelas_mapel_id}', [KelasMapelAdminController::class, 'destroy'])->name('kelas-mapel.destroy');
 
         // Siswa
         Route::get('siswa', [SiswaAdminController::class, 'index'])->name('siswa.index');

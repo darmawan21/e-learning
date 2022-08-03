@@ -144,9 +144,9 @@
                                     <select class="form-control" id="kelas" name="kelas_id">
                                     @foreach ($kelas as $kls)
                                         @if (old('kelas_id', $siswa->kelas_id) == $kls->id)
-                                            <option value="{{ $kls->id }}" selected>{{ $kls->nama_kelas }}</option>
+                                            <option value="{{ $kls->id }}" selected>{{ $kls->nama_kelas }} - {{ $kls->tahunAjaran->tahun_ajaran}} - {{ $kls->semester->nama_semester }}</option>
                                         @else
-                                            <option value="{{ $kls->id }}" >{{ $kls->nama_kelas }}</option>
+                                            <option value="{{ $kls->id }}" >{{ $kls->nama_kelas }} - {{ $kls->tahunAjaran->tahun_ajaran}} - {{ $kls->semester->nama_semester }}</option>
                                         @endif
                                     @endforeach
                                     </select>

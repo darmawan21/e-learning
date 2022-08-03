@@ -72,7 +72,7 @@
                                     </div>
                                 </td>
                                 <td class="align-middle text-center text-sm">{{ $materi->kelasMapel->MataPelajaran->nama_mapel }}</td>
-                                <td class="align-middle text-center text-sm">{{ $materi->kelasMapel->kelas->nama_kelas }}</td>
+                                <td class="align-middle text-center text-sm">{{ $materi->kelasMapel->kelas->nama_kelas }} - {{$materi->kelasMapel->kelas->tahunAjaran->tahun_ajaran}} - {{$materi->kelasMapel->kelas->semester->nama_semester}}</td>
                                 <td class="align-middle text-center text-sm">
                                     <a href="{{ route('guru.materi.edit', $materi->id) }}">
                                         <i class="fas fa-pencil-alt p-3"></i>

@@ -18,12 +18,14 @@
                         @foreach ($mapels as $mapel)
                         <div class="col-md-6 mb-md-0 mb-4 mt-4">
                             <div class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
-                            <h6 class="mb-0">{{ $mapel->mataPelajaran->nama_mapel }}</h6>
-                            <a href="{{ route('mata_pelajaran.show', $mapel->id)}}" class="ms-auto">
-                                <i class="ni ni-bold-right p-3"></i>
-                            </a>
+                                <div class="d-flex flex-column">
+                                    <h6 class="mb-1 text-dark text-sm">{{ $mapel->mataPelajaran->nama_mapel }}</h6>
+                                    <span class="text-xs">Guru : {{ $mapel->guru->name}}</span>
+                                </div>
+                                    <a href="{{ route('mata_pelajaran.show', $mapel->id)}}" class="ms-auto">
+                                        <i class="ni ni-bold-right p-3"></i>
+                                    </a>
                             </div>
-                            
                         </div>
                         @endforeach
                     </div>

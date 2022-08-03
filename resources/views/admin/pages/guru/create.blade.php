@@ -66,17 +66,21 @@
                                         </div>
                                     @enderror
                                 </div>
+
                                 <div class="form-group">
                                     <label for="agama">Agama</label>
-                                    <input class="form-control @error('agama')
+                                    <select class="form-control @error('agama')
                                         is-invalid
-                                    @enderror" id="agama" type="text" name="agama" required value="{{ old('agama') }}">
-                                    @error('agama')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    @enderror" id="agama" name="agama" value="{{ old('agama') }}">
+                                        <option>Islam</option>
+                                        <option>Kristen</option>
+                                        <option>Khatolik</option>
+                                        <option>Hindu</option>
+                                        <option>Buddha</option>
+                                        <option>Konghucu</option>
+                                    </select>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="telp">Nomer Telephone</label>
                                     <input class="form-control @error('telp')
@@ -110,17 +114,20 @@
                                         </div>
                                     @enderror
                                 </div>
+                                
+
                                 <div class="form-group">
                                     <label for="pangkat">Jabatan</label>
-                                    <input class="form-control @error('pangkat')
+                                    <select class="form-control @error('pangkat')
                                         is-invalid
-                                    @enderror" id="pangkat" type="text" name="pangkat" required value="{{ old('pangkat') }}">
-                                    @error('pangkat')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    @enderror" id="pangkat" name="pangkat" required value="{{ old('pangkat') }}">
+                                        <option>Kepala Sekolah</option>
+                                        <option>Wakil Kepala Sekolah</option>
+                                        <option>Guru Mapel</option>
+                                        <option>Guru</option>
+                                    </select>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="email">E-mail</label>
                                     <input class="form-control @error('email')

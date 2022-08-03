@@ -29,7 +29,9 @@
                     <thead>
                     <tr>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama Kelas & Tahun</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama Kelas</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tahun Ajaran</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Semester</th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Aksi</th>
                     </tr>
                     </thead>
@@ -38,6 +40,8 @@
                             <tr>
                                 <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
                                 <td class="align-middle text-center text-sm">{{ $kls->nama_kelas }}</td>
+                                <td class="align-middle text-center text-sm">{{ $kls->tahunAjaran->tahun_ajaran }}</td>
+                                <td class="align-middle text-center text-sm">{{ $kls->semester->nama_semester }}</td>
                                 <td class="align-middle text-center text-sm">
                                     <a href="{{ route('admin.kelas.edit', $kls->id) }}">
                                         <i class="fas fa-pencil-alt p-3"></i>

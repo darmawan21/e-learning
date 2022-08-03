@@ -13,7 +13,7 @@
                     <div class="d-flex flex-column">
                         @foreach ($kelas as $kelasu)
                             <h6 class="mb-3 text-sm">Mata Pelajaran <span class="text-dark font-weight-bold ms-sm-2">: {{$kelasu->ujian->kelasMapel->mataPelajaran->nama_mapel}}</span></h6>
-                            <h6 class="mb-3 text-sm">Kelas <span class="text-dark font-weight-bold ms-sm-2">: {{$kelasu->kelas->nama_kelas}}</span></h6>
+                            <h6 class="mb-3 text-sm">Kelas <span class="text-dark font-weight-bold ms-sm-2">: {{$kelasu->kelas->nama_kelas}} - {{$kelasu->kelas->tahunAjaran->tahun_ajaran}} - {{ $kelasu->kelas->semester->nama_semester}}</span></h6>
                             <h6 class="mb-3 text-sm">Jenis Ujian <span class="text-dark font-weight-bold ms-sm-2">: {{$kelasu->ujian->jenisUjian->jenis_ujian}}</span></h6>
                         @endforeach
                     </div>

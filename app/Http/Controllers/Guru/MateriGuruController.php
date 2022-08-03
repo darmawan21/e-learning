@@ -47,7 +47,7 @@ class MateriGuruController extends Controller
     {
 
         $materis = Materi::whereId($materi_id)->first();
-        $kelasmapels = KelasMapel::all();
+        $kelasmapels = KelasMapel::where('guru_id', auth()->guard('guru')->user()->id)->get();
         return view('guru.pages.materi.edit', compact('materis', 'kelasmapels'));
     }
 

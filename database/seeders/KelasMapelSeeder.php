@@ -19,11 +19,5 @@ class KelasMapelSeeder extends Seeder
             'mata_pelajaran_id' => '1',
             'kelas_id' => '1',
         ]);
-
-        KelasMapel::create([
-            'guru_id' => '2',
-            'mata_pelajaran_id' => '1',
-            'kelas_id' => '2',
-        ]);
     }
 }

@@ -56,7 +56,7 @@
                                 </div>
                             </td>
                             <td>
-                                <p class="text-xs font-weight-bold mb-0">{{$siswa->kelas->nama_kelas}}</p>
+                                <p class="text-xs font-weight-bold mb-0">{{$siswa->kelas->nama_kelas}} | {{$siswa->kelas->tahunAjaran->tahun_ajaran}}</p>
                                 <p class="text-xs text-secondary mb-0">{{$siswa->nis}}</p>
                             </td>
                             <td>

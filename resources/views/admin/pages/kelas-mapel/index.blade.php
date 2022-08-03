@@ -1,4 +1,4 @@
-@extends('guru.layouts.main')
+@extends('admin.layouts.main')
 
 @section('container')
 <div class="container-fluid py-4">
@@ -7,6 +7,7 @@
             <div class="card mb-4">
             
             <div class="card-header pb-0">
+                <h3 class="text-center">{{ $gurus->judul_tugas }}</h3>
                 @if (session()->has('success'))
                     <div class="alert alert-success alert-dismissible fade show" style="color: white;" role="alert">
                         <span class="alert-icon"><i class="ni ni-like-2"></i></span>
@@ -17,11 +18,11 @@
                     </div>
                 @endif
 
-                <a href="{{ route('guru.mata-pelajaran.create') }}" class="btn btn-icon btn-3 btn-primary">
+                <a href="{{ route('admin.kelas-mapel.create', $gurus->id) }}" class="btn btn-icon btn-3 btn-primary">
                     <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
-                    <span class="btn-inner--text">Tambah Mata Pelajaran</span>
+                    <span class="btn-inner--text">Pilih Mapel & Kelas</span>
                 </a>
-                <h6>Data Mata Pelajaran Yang Diampu</h6>
+                <h6>Data Mata Palajaran & Kelas Terpilih</h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-0">
@@ -30,22 +31,21 @@
                     <tr>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mata Pelajaran</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Kelas </th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama Kelas</th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Aksi</th>
-                        <th class="text-secondary opacity-7"></th>
                     </tr>
                     </thead>
                     <tbody>
-                        @foreach ($mapels as $mapel)
+                        @foreach ($gurus->kelasMapel as $kelas)
                             <tr>
                                 <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
-                                <td class="align-middle text-center text-sm">{{ $mapel->mataPelajaran->nama_mapel }}</td>
-                                <td class="align-middle text-center text-sm">{{ $mapel->kelas->nama_kelas }} - {{ $mapel->kelas->tahunAjaran->tahun_ajaran}} - {{ $mapel->kelas->semester->nama_semester }}</td>
+                                <td class="align-middle text-center text-sm">{{ $kelas->mataPelajaran->nama_mapel }}</td>
+                                <td class="align-middle text-center text-sm">{{ $kelas->kelas->nama_kelas }} - {{ $kelas->kelas->tahunAjaran->tahun_ajaran }} - {{ $kelas->kelas->semester->nama_semester }}</td>
                                 <td class="align-middle text-center text-sm">
-                                    <a href="{{ route('guru.mata-pelajaran.edit', $mapel->id) }}">
+                                    <a href="{{ route('admin.kelas-mapel.edit', [$gurus->id, $kelas->id]) }}">
                                         <i class="fas fa-pencil-alt p-3"></i>
                                     </a>
-                                    <a onclick="return confirm('Apakah anda yakin hapus data ini ?')" href="{{ route('guru.mata-pelajaran.destroy', $mapel->id) }}">
+                                    <a onclick="return confirm('Apakah anda yakin hapus data ini ?')" href="{{ route('admin.kelas-mapel.destroy', [$gurus->id, $kelas->id]) }}">
                                         <i class="far fa-trash-alt text-danger"></i>
                                     </a>
                                 </td>

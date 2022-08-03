@@ -58,8 +58,12 @@
                                 <div class="form-group">
                                     <label for="kelamin">Jenis Kelamin</label>
                                     <select class="form-control" id="kelamin" name="kelamin">
-                                        <option value="Laki-laki">Laki-laki</option>
-                                        <option value="Perempuan">Perempuan</option>
+                                        <option value="Laki-laki" {{ old('kelamin', $guru->kelamin) == "Laki-laki" ? 'selected' : '' }}>
+                                            Laki-laki
+                                        </option>
+                                        <option value="Perempuan" {{ old('kelamin', $guru->kelamin) == "Perempuan" ? 'selected' : '' }}>
+                                            Perempuan
+                                        </option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -73,17 +77,33 @@
                                         </div>
                                     @enderror
                                 </div>
+                
                                 <div class="form-group">
                                     <label for="agama">Agama</label>
-                                    <input class="form-control @error('agama')
+                                    <select class="form-control @error('agama')
                                         is-invalid
-                                    @enderror" id="agama" type="text" name="agama" required value="{{ old('agama', $guru->agama) }}">
-                                    @error('agama')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    @enderror" id="agama" name="agama">
+                                        <option value="Islam" {{ old('agama', $guru->agama) == "Islam" ? 'selected' : '' }}>
+                                            Islam
+                                        </option>
+                                        <option value="Kristen" {{ old('agama', $guru->agama) == "Kristen" ? 'selected' : '' }}>
+                                            Kristen
+                                        </option>
+                                        <option value="Khatolik" {{ old('agama', $guru->agama) == "Khatolik" ? 'selected' : '' }}>
+                                            Khatolik
+                                        </option>
+                                        <option value="Hindu" {{ old('agama', $guru->agama) == "Hindu" ? 'selected' : '' }}>
+                                            Hindu
+                                        </option>
+                                        <option value="Buddha" {{ old('agama', $guru->agama) == "Buddha" ? 'selected' : '' }}>
+                                            Buddha
+                                        </option>
+                                        <option value="Konghucu" {{ old('agama', $guru->agama) == "Konghucu" ? 'selected' : '' }}>
+                                            Konghucu
+                                        </option>
+                                    </select>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="telp">Nomer Telephone</label>
                                     <input class="form-control @error('telp')
@@ -117,17 +137,27 @@
                                         </div>
                                     @enderror
                                 </div>
+
                                 <div class="form-group">
                                     <label for="pangkat">Jabatan</label>
-                                    <input class="form-control @error('pangkat')
+                                    <select class="form-control @error('pangkat')
                                         is-invalid
-                                    @enderror" id="pangkat" type="text" name="pangkat" required value="{{ old('pangkat', $guru->pangkat) }}">
-                                    @error('pangkat')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
+                                    @enderror" id="pangkat" name="pangkat" required>
+                                        <option value="Kepala Sekolah" {{ old('pangkat', $guru->pangkat) == "Kepala Sekolah" ? 'selected' : '' }}>
+                                            Kepala Sekolah
+                                        </option>
+                                        <option value="Wakil Kepala Sekolah" {{ old('pangkat', $guru->pangkat) == "Wakil Kepala Sekolah" ? 'selected' : '' }}>
+                                            Wakil Kepala Sekolah
+                                        </option>
+                                        <option value="Guru Mapel" {{ old('pangkat', $guru->pangkat) == "Guru Mapel" ? 'selected' : '' }}>
+                                            Guru Mapel
+                                        </option>
+                                        <option value="Guru" {{ old('pangkat', $guru->pangkat) == "Guru" ? 'selected' : '' }}>
+                                            Guru
+                                        </option>
+                                    </select>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="email">E-mail</label>
                                     <input class="form-control @error('email')

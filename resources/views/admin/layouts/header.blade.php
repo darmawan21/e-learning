@@ -20,6 +20,10 @@
             <li class="breadcrumb-item text-sm text-white active" aria-current="page">Pengumuman</li>
         @elseif (request()->is('admin/profil-admin*'))
             <li class="breadcrumb-item text-sm text-white active" aria-current="page">Profil admin</li>
+        @elseif (request()->is('admin/semester*'))
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Semester</li>
+        @elseif (request()->is('admin/tahun-ajaran*'))
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Tahun Ajaran</li>
         @endif
         </ol>
         @if (request()->is('admin/dashboard*'))
@@ -38,6 +42,10 @@
             <h6 class="font-weight-bolder text-white mb-0">Pengumuman</h6>
         @elseif (request()->is('admin/profil-admin*'))
             <h6 class="font-weight-bolder text-white mb-0">Profil admin</h6>
+        @elseif (request()->is('admin/semester*'))
+            <h6 class="font-weight-bolder text-white mb-0">Semester</h6>
+        @elseif (request()->is('admin/tahun-ajaran*'))
+            <h6 class="font-weight-bolder text-white mb-0">Tahun Ajaran</h6>
         @endif
     </nav>
     <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">

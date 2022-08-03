@@ -51,7 +51,7 @@
                     <i class="ni location_pin mr-2"></i>{{$profil->alamat}}
                 </div>
                 <div class="h6 mt-4">
-                    <i class="ni business_briefcase-24 mr-2"></i>{{$profil->kelas->nama_kelas}}
+                    <i class="ni business_briefcase-24 mr-2"></i>{{$profil->kelas->nama_kelas}} - {{$profil->kelas->tahunAjaran->tahun_ajaran}} - {{$profil->kelas->semester->nama_semester}}
                 </div>
                 <div>
                     <i class="ni education_hat mr-2"></i>SMP Negeri 5 Mesuji Makmur 

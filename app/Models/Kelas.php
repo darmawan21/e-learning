@@ -39,4 +39,14 @@ class Kelas extends Model
     {
         return $this->hasMany(PengumumanAdmin::class);
     }
+
+    public function semester()
+    {
+        return $this->belongsTo(Semester::class);
+    }
+
+    public function tahunAjaran()
+    {
+        return $this->belongsTo(TahunAjaran::class);
+    }
 }

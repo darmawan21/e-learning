@@ -19,9 +19,9 @@
                                     <select class="form-control" id="mapel" name="kelas_mapel_id">
                                     @foreach ($kelasmapels as $mapel)
                                         @if (old('kelas_mapel_id') == $mapel->id)
-                                            <option value="{{ $mapel->id }}" selected>{{ $mapel->mataPelajaran->nama_mapel }} - {{ $mapel->kelas->nama_kelas }}</option>
+                                            <option value="{{ $mapel->id }}" selected>{{ $mapel->mataPelajaran->nama_mapel }} - {{ $mapel->kelas->nama_kelas }} - {{ $mapel->kelas->tahunAjaran->tahun_ajaran }} - {{ $mapel->kelas->semester->nama_semester }}</option>
                                         @else
-                                            <option value="{{ $mapel->id }}" >{{ $mapel->mataPelajaran->nama_mapel }} - {{ $mapel->kelas->nama_kelas }}</option>
+                                            <option value="{{ $mapel->id }}" >{{ $mapel->mataPelajaran->nama_mapel }} - {{ $mapel->kelas->nama_kelas }} - {{ $mapel->kelas->tahunAjaran->tahun_ajaran }} - {{ $mapel->kelas->semester->nama_semester }}</option>
                                         @endif
                                     @endforeach
                                     </select>

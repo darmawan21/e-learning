@@ -48,7 +48,7 @@
                             <td class="align-middle text-center text-sm">
                                 @foreach ($ujian->kelasUjian as $kelas)
                                 <a href="{{ route('guru.nilai.show', ['ujian_id' => $ujian->id, 'kelas_id' => $kelas->kelas_id]) }}" class="text-secondary font-weight-bold text-sm">
-                                    <span class="badge badge-sm bg-gradient-primary" style="margin-top: 5px;">{{ $kelas->kelas->nama_kelas }}</span>
+                                    <span class="badge badge-sm bg-gradient-primary" style="margin-top: 5px;">{{ $kelas->kelas->nama_kelas }} - {{ $kelas->kelas->tahunAjaran->tahun_ajaran}}</span>
                                 </a><br>
                                 @endforeach
                             </td>

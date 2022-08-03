@@ -7,7 +7,7 @@
         <div class="col-md-8">
             <div class="card">
 
-                <form method="POST" action="{{ route('guru.kelas_ujian.update', [$ujians->id, $ujians->ujian_id]) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('guru.kelas_ujian.update', [$ujians->ujian_id, $ujians->id]) }}" enctype="multipart/form-data">
                     @method('put')
                     @csrf   
                     <div class="card-body">
@@ -20,9 +20,9 @@
                                     <select class="form-control" id="kelas" name="kelas_id">
                                     @foreach ($kelas as $kls)
                                         @if (old('kelas_id', $ujians->kelas_id) == $kls->id)
-                                            <option value="{{ $kls->id }}" selected>{{ $kls->nama_kelas }}</option>
+                                            <option value="{{ $kls->id }}" selected>{{ $kls->nama_kelas }} - {{ $kls->tahunAjaran->tahun_ajaran }} - {{ $kls->semester->nama_semester }}</option>
                                         @else
-                                            <option value="{{ $kls->id }}" >{{ $kls->nama_kelas }}</option>
+                                            <option value="{{ $kls->id }}" >{{ $kls->nama_kelas }} - {{ $kls->tahunAjaran->tahun_ajaran }} - {{ $kls->semester->nama_semester }}</option>
                                         @endif
                                     @endforeach
                                     </select>

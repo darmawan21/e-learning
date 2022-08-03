@@ -38,7 +38,7 @@
                         @foreach ($ujians->kelasUjian as $kelas)
                             <tr>
                                 <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
-                                <td class="align-middle text-center text-sm">{{ $kelas->kelas->nama_kelas }}</td>
+                                <td class="align-middle text-center text-sm">{{ $kelas->kelas->nama_kelas }} - {{ $kelas->kelas->tahunAjaran->tahun_ajaran }} - {{ $kelas->kelas->semester->nama_semester }}</td>
                                 <td class="align-middle text-center text-sm">
                                     <a href="{{ route('guru.kelas_ujian.edit', [$ujians->id, $kelas->id]) }}">
                                         <i class="fas fa-pencil-alt p-3"></i>
