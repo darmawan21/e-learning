@@ -48,7 +48,13 @@
                         <tr>
                             <td class="align-middle text-center text-sm">{{ $loop->iteration }}</td>
                             <td class="align-middle text-center text-sm">{{ $soals->soal }}</td>
-                            <td class="align-middle text-center text-sm">{{ $soals->image }}</td>
+                            <td class="align-middle text-center text-sm">
+                                @if ($soals->image)
+                                    <img src="{{ asset('storage/' . $soals->image) }}" alt="{{$soals->soal}}" style="width: 120px;">
+                                @else
+                                    <p style="font-size: 12px; font-style: italic;">Tidak ada gambar</p>
+                                @endif  
+                            </td>
                             <td class="align-middle text-center text-sm">{{ $soals->pilihan1 }}</td>
                             <td class="align-middle text-center text-sm">{{ $soals->pilihan2 }}</td>
                             <td class="align-middle text-center text-sm">{{ $soals->pilihan3 }}</td>

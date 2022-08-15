@@ -59,7 +59,7 @@ require __DIR__.'/auth.php';
 Route::middleware(['auth'])->group(function () {
 
     // Dashboard
-    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+    Route::get('/', [HomeController::class, 'index'])->name('dashboard');
     Route::get('/notify', [HomeController::class, 'notify'])->name('notify');
 
     // Profil Siswa

@@ -17,7 +17,7 @@ class CreateSoalsTable extends Migration
             $table->id();
             $table->string('ujian_id');
             $table->longText('soal');
-            $table->longText('image')->nullable();
+            $table->string('image')->nullable();
             $table->longText('pilihan1');
             $table->longText('pilihan2');
             $table->longText('pilihan3');

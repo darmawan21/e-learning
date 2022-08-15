@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header pb-0 px-3">
                     <div class="col-12">
-                        <h6 class="mb-0">Informasi Ujian</h6>
+                        <h6 class="mb-0">Soal Ujian</h6>
                         <p class="text-end" style="margin-right: 20px;" id="waktu"></p>
                     </div>
                 </div>
@@ -18,25 +18,32 @@
                             @foreach ($ujian->soal as $soals)
                             <li class="list-group-item border-0 justify-content-star p-4 mb-2 bg-gray-100 border-radius-lg">
                                 <strong># {{$loop->iteration}}</strong> {{$soals->soal}}
-                                <div class="form-check mb-3 mt-3">
+                                <div class="image m-4">
+                                    @if ($soals->image)
+                                        <img class="image-fluid rounded" src="{{ asset('storage/' . $soals->image) }}" alt="{{ $soals->soal }}" style="width: 600px; height: 400px;">
+                                    @else
+                                        <p hidden>Tidak ada Gambar</p>
+                                    @endif
+                                </div>
+                                <div class="form-check m-4">
                                     <input class="form-check-input" type="radio" name="{{ $soals->id }}" id="ujian{{ $soals->id }}1" value="pilihan1">
                                     <label class="form-check-label" for="ujian{{$ujian->id}}1">
                                         {{$soals->pilihan1}}
                                     </label>
                                 </div>
-                                <div class="form-check mb-3 mt-3">
+                                <div class="form-check m-4">
                                     <input class="form-check-input" type="radio" name="{{ $soals->id }}" id="ujian{{ $soals->id }}2" value="pilihan2">
                                     <label class="form-check-label" for="ujian{{$ujian->id}}2">
                                         {{$soals->pilihan2}}
                                     </label>
                                 </div>
-                                <div class="form-check mb-3 mt-3">
+                                <div class="form-check m-4">
                                     <input class="form-check-input" type="radio" name="{{ $soals->id }}" id="ujian{{ $soals->id }}3" value="pilihan3">
                                     <label class="form-check-label" for="ujian{{$ujian->id}}3">
                                         {{$soals->pilihan3}}
                                     </label>
                                 </div>
-                                <div class="form-check mb-3 mt-3">
+                                <div class="form-check m-4">
                                     <input class="form-check-input" type="radio" name="{{ $soals->id }}" id="ujian{{ $soals->id }}4" value="pilihan4">
                                     <label class="form-check-label" for="ujian{{$ujian->id}}4">
                                         {{$soals->pilihan4}}

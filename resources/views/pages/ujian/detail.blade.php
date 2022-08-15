@@ -18,6 +18,13 @@
                                     <i class="ni ni-fat-remove"></i>
                                 @endif
                                 <strong> {{$loop->iteration}}</strong> . {{$soals->soal}}
+                                <div class="image m-4">
+                                    @if ($soals->image)
+                                        <img class="image-fluid rounded" src="{{ asset('storage/' . $soals->image) }}" alt="{{ $soals->soal }}" style="width: 600px; height: 400px;">
+                                    @else
+                                        <p hidden>Tidak ada Gambar</p>
+                                    @endif
+                                </div>
                                 <div class="form-check mb-3 mt-3">
                                     @if ('pilihan1' == $soals->kunci)
                                         <label class="form-check-label text-bold" style="color: green;" for="ujian{{$ujian->id}}1">
