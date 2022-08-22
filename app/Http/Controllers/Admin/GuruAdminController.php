@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Guru;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\KelasMapel;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class GuruAdminController extends Controller
 {
@@ -88,6 +90,7 @@ class GuruAdminController extends Controller
     public function destroy($guru_id)
     {
         Guru::where('id', $guru_id)->delete();
+        KelasMapel::where('guru_id', $guru_id)->delete();
         return redirect()->route('admin.guru.index')->with('success', 'Berhasil menghapus data guru');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\TahunAjaran;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -26,6 +27,6 @@ class DatabaseSeeder extends Seeder
         $this->call(KelasUjianSeeder::class);
         $this->call(KelasMapelSeeder::class);
         $this->call(SemesterSeeder::class);
-        $this->call(TahunAjaran::class);
+        $this->call(TahunAjaranSeeder::class);
     }
 }

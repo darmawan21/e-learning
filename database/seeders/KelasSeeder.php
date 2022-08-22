@@ -16,13 +16,13 @@ class KelasSeeder extends Seeder
     {
         Kelas::create([
             'nama_kelas' => 'Kelas I A',
-            'tahun_ajaran_id' => '1',
+            'tahun_ajaran_id' => '3',
             'semester_id' => '1',
         ]);
 
         Kelas::create([
             'nama_kelas' => 'Kelas II A',
-            'tahun_ajaran_id' => '2',
+            'tahun_ajaran_id' => '3',
             'semester_id' => '1',
         ]);
 
@@ -31,5 +31,24 @@ class KelasSeeder extends Seeder
             'tahun_ajaran_id' => '3',
             'semester_id' => '1',
         ]);
+
+        Kelas::create([
+            'nama_kelas' => 'Kelas I B',
+            'tahun_ajaran_id' => '3',
+            'semester_id' => '1',
+        ]);
+
+        Kelas::create([
+            'nama_kelas' => 'Kelas II B',
+            'tahun_ajaran_id' => '3',
+            'semester_id' => '1',
+        ]);
+
+        Kelas::create([
+            'nama_kelas' => 'Kelas III B',
+            'tahun_ajaran_id' => '3',
+            'semester_id' => '1',
+        ]);
+
     }
 }

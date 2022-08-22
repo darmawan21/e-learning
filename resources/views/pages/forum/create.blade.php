@@ -10,7 +10,7 @@
                 <form method="POST" action="{{ route('forum.store') }}" enctype="multipart/form-data">
                     @csrf   
                     <div class="card-body">
-                        <p class="text-uppercase text-sm">Form Soal Ujian</p>
+                        <p class="text-uppercase text-sm">Form Tambah Forum</p>
                         <hr class="horizontal dark">
                         <div class="row">
                             <div class="col-md-12">
