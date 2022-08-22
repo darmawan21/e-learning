@@ -23,7 +23,8 @@ class NilaiGuruController extends Controller
         $kelas = KelasUjian::where('ujian_id', $ujian_id)->where('kelas_id', $kelas_id)->get();
         $users = User::where('kelas_id', $kelas_id)->get('id');
         
-        $items = Nilai::where('ujian_id', $ujian_id)->whereIn('id',$users)->get();
+        $items = Nilai::where('ujian_id', $ujian_id)->get();
+        // ->whereIn('id',$users)
 
         return view('guru.pages.nilai.show', compact('kelas', 'users', 'items'));
     }   

@@ -75,17 +75,30 @@
                 <h3 class="card-title mb-3 text-center">Dashboard Siswa Aplikasi E-Learning</h3>
                 <p class="card-text mb-4 text-center">SMP NEGERI 5 MESUJI MAKMUR</p>
 
-                @foreach ($pengumumans as $pengumuman)
+                @foreach ($pengumumanAdmins as $pengumuman)
                 <div class="col-12">
-                <div class="alert alert-info alert-dismissible fade show" style="color: white;" role="alert">
-                    <span class="alert-icon"><i class="ni ni-like-2"></i></span>
-                    <span class="alert-text"><strong>Info!</strong> {{ $pengumuman->pengumuman }}</span>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+                    <div class="alert alert-info alert-dismissible fade show" style="color: white;" role="alert">
+                        <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+                        <span class="alert-text"><strong>Info!</strong> {{ $pengumuman->pengumuman }}</span>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                 </div>
                 @endforeach
+
+                @foreach ($pengumumanGurus as $pengumuman)
+                <div class="col-12">
+                    <div class="alert alert-info alert-dismissible fade show" style="color: white;" role="alert">
+                        <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+                        <span class="alert-text"><strong>Info!</strong> {{ $pengumuman->pengumuman }}</span>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+                @endforeach
+                
             </div>
         </div>
     </div>

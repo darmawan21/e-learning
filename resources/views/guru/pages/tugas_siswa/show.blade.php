@@ -43,7 +43,7 @@
                         @foreach ($items as $item)                        
                             <tr>
                                 <td class="align-middle text-center text-sm">{{$loop->iteration}}</td>
-                                <td class="align-middle text-center text-sm">{{$item->user->id}}</td>
+                                <td class="align-middle text-center text-sm">{{$item->user->nis}}</td>
                                 <td class="align-middle text-center text-sm">{{$item->user->name}}</td>
                                 <td class="align-middle text-center text-sm"><a href="{{ asset('storage/' . $item->file) }}"><i class="fas fa-file-download"></i> Download Tugas</a></td>
                                 <td class="align-middle text-center text-sm">{{$item->keterangan}}</td>

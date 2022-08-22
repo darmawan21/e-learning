@@ -14,9 +14,9 @@ class KelasUjianSeeder extends Seeder
      */
     public function run()
     {
-        KelasUjian::create([
-            'ujian_id' => '1',
-            'kelas_id' => '2',
-        ]);
+        // KelasUjian::create([
+        //     'ujian_id' => '1',
+        //     'kelas_id' => '2',
+        // ]);
     }
 }

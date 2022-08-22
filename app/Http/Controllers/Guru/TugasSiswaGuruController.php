@@ -22,7 +22,8 @@ class TugasSiswaGuruController extends Controller
         $kelas = KelasTugas::where('tugas_id', $tugas_id)->where('kelas_id', $kelas_id)->get();
         $users = User::where('kelas_id', $kelas_id)->get('id');
         
-        $items = TugasSiswa::where('tugas_id', $tugas_id)->whereIn('id',$users)->get();
+        $items = TugasSiswa::where('tugas_id', $tugas_id)->get();
+        // whereIn('id',$users)
 
         return view('guru.pages.tugas_siswa.show', compact('kelas', 'users', 'items'));
     }  

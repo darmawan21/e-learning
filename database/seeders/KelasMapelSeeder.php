@@ -14,10 +14,10 @@ class KelasMapelSeeder extends Seeder
      */
     public function run()
     {
-        KelasMapel::create([
-            'guru_id' => '1',
-            'mata_pelajaran_id' => '1',
-            'kelas_id' => '1',
-        ]);
+        // KelasMapel::create([
+        //     'guru_id' => '1',
+        //     'mata_pelajaran_id' => '1',
+        //     'kelas_id' => '1',
+        // ]);
     }
 }

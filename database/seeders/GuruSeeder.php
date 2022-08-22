@@ -56,33 +56,33 @@ class GuruSeeder extends Seeder
             'password' => bcrypt('password')
         ]);
 
-        Guru::create([
-            'name' => 'YOYOK SUWARDOYO, S.PD',
-            'nip' => '198701042010011003',
-            'kelamin' => 'Laki-laki',
-            'alamat' => 'Sumber mulya',
-            'agama' => 'islam',
-            'telp' => '08125577768',
-            'tempat_lahir' => 'Purwodadi',
-            'tanggal_lahir' => '1987-01-04',
-            'pangkat' => 'Guru',
-            'email' => 'yoyok@gmail.com',
-            'password' => bcrypt('password')
-        ]);
+        // Guru::create([
+        //     'name' => 'YOYOK SUWARDOYO, S.PD',
+        //     'nip' => '198701042010011003',
+        //     'kelamin' => 'Laki-laki',
+        //     'alamat' => 'Sumber mulya',
+        //     'agama' => 'islam',
+        //     'telp' => '08125577768',
+        //     'tempat_lahir' => 'Purwodadi',
+        //     'tanggal_lahir' => '1987-01-04',
+        //     'pangkat' => 'Guru',
+        //     'email' => 'yoyok@gmail.com',
+        //     'password' => bcrypt('password')
+        // ]);
 
-        Guru::create([
-            'name' => 'MADE JANTEN, S.E',
-            'nip' => '196911162014061001',
-            'kelamin' => 'Laki-laki',
-            'alamat' => 'Mukti karya',
-            'agama' => 'islam',
-            'telp' => '08122366897',
-            'tempat_lahir' => 'Nusaraya, Oku',
-            'tanggal_lahir' => '1969-11-16',
-            'pangkat' => 'Guru',
-            'email' => 'madejanten@gmail.com',
-            'password' => bcrypt('password')
-        ]);
+        // Guru::create([
+        //     'name' => 'MADE JANTEN, S.E',
+        //     'nip' => '196911162014061001',
+        //     'kelamin' => 'Laki-laki',
+        //     'alamat' => 'Mukti karya',
+        //     'agama' => 'islam',
+        //     'telp' => '08122366897',
+        //     'tempat_lahir' => 'Nusaraya, Oku',
+        //     'tanggal_lahir' => '1969-11-16',
+        //     'pangkat' => 'Guru',
+        //     'email' => 'madejanten@gmail.com',
+        //     'password' => bcrypt('password')
+        // ]);
 
         Guru::create([
             'name' => 'TANSISTA, A.MD',
